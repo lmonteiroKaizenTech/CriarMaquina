@@ -1,0 +1,37 @@
+{
+  "name": "testsetup",
+  "version": "1.0.0",
+  "description": "Para fazer a instalação e usar o playwright deverá garantir que tem as seguintes dependências:\r - Node e npm\r - Git e acesso ao github\r - Dispositivo conectado a firewall\r - Visual Studio Code ou outro IDE",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "playwright": "^1.41.1",
+    "playwright-json-summary-reporter": "^1.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.41.2",
+    "@types/mysql": "^2.15.24",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "mssql": "^9.1.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.5",
+    "puppeteer": "^21.11.0",
+    "request": "^2.88.2",
+    "require": "^0.4.4",
+    "ts-node": "^10.9.2",
+    "xlsx": "^0.18.5"
+  },
+  "directories": {
+    "test": "tests"
+  }
+}

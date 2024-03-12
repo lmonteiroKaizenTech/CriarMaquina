@@ -1,0 +1,223 @@
+{
+  "config": {
+    "configFile": "c:\\Users\\LeandroMonteiro\\Desktop\\CriarMáquina\\playwright.config.js",
+    "rootDir": "c:/Users/LeandroMonteiro/Desktop/CriarMáquina/tests/scripts",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "c:/Users/LeandroMonteiro/Desktop/CriarMáquina/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "setup",
+        "name": "setup",
+        "testDir": "c:/Users/LeandroMonteiro/Desktop/CriarMáquina/tests/scripts",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 500000
+      },
+      {
+        "outputDir": "c:/Users/LeandroMonteiro/Desktop/CriarMáquina/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "c:/Users/LeandroMonteiro/Desktop/CriarMáquina/tests/scripts",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 500000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.41.2",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth.setup.ts",
+      "file": "auth.setup.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "authenticate",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 500000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "setup",
+              "projectName": "setup",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 5078,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-03-11T18:08:50.555Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "17e3fe6f4d9d8bd79c6b-60f085b113a677673906",
+          "file": "auth.setup.ts",
+          "line": 5,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "title": "Automatismo.spec.ts",
+      "file": "Automatismo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "CriarMinhaMáquina",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 500000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 255537,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "[\n  {\n    Site: \u001b[32m'http://ktmesapp04/TS/pages/home/'\u001b[39m,\n    \u001b[32m'Excel AUT'\u001b[39m: \u001b[32m'C:\\\\Users\\\\LeandroMonteiro\\\\Desktop\\\\disneyland.xlsx'\u001b[39m,\n    \u001b[32m'Máquina'\u001b[39m: \u001b[32m'Colagem'\u001b[39m,\n    \u001b[32m'Nome Máquina'\u001b[39m: \u001b[32m'CHK_Colagem_Sys_ColagA07'\u001b[39m,\n    \u001b[32m'Número Máquina'\u001b[39m: \u001b[32m'07'\u001b[39m,\n    Tipo: \u001b[32m'Discrete System'\u001b[39m,\n    Template: \u001b[32m'CHK_Colag.ColagA07'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'CHK'\u001b[39m,\n    Location: \u001b[32m'CHK_L_Champcork'\u001b[39m,\n    \u001b[32m'Nome Location'\u001b[39m: \u001b[32m'CHK_L_ColagA07'\u001b[39m,\n    \u001b[32m'Ord.ProduzItemsDefinitionID'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.TaxaProducaoTeorica'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Evento.EstadoMaquina'\u001b[39m: \u001b[33m1\u001b[39m\n  },\n  {\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'Colagem'\u001b[39m,\n    Location: \u001b[32m'CHK_L_30,5'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m2\u001b[39m\n  },\n  {\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'ColagA07'\u001b[39m,\n    Location: \u001b[32m'CHK_L_Colagem'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m3\u001b[39m\n  },\n  {\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m4\u001b[39m\n  },\n  {\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m5\u001b[39m\n  },\n  {\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m6\u001b[39m\n  },\n  {\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m7\u001b[39m\n  },\n  {\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m8\u001b[39m\n  },\n  {\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m9\u001b[39m\n  },\n  {\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m10\u001b[39m\n  }\n]\n"
+                    },
+                    {
+                      "text": "http://ktmesapp04/TS/pages/home/\n"
+                    },
+                    {
+                      "text": "C:\\Users\\LeandroMonteiro\\Desktop\\disneyland.xlsx\n"
+                    },
+                    {
+                      "text": "Colagem\n"
+                    },
+                    {
+                      "text": "CHK_Colagem_Sys_ColagA07\n"
+                    },
+                    {
+                      "text": "07\n"
+                    },
+                    {
+                      "text": "Discrete System\n"
+                    },
+                    {
+                      "text": "CHK_Colag.ColagA07\n"
+                    },
+                    {
+                      "text": "CHK_L_ColagA07\n"
+                    },
+                    {
+                      "text": "\u001b[33m1\u001b[39m\n"
+                    },
+                    {
+                      "text": "\u001b[33m1\u001b[39m\n"
+                    },
+                    {
+                      "text": "\u001b[33m1\u001b[39m\n"
+                    },
+                    {
+                      "text": "-------------------------------\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m,  \u001b[33m5\u001b[39m,\n  \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m\n]\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m,  \u001b[33m5\u001b[39m,\n  \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m\n]\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m,  \u001b[33m5\u001b[39m,\n  \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m\n]\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m,  \u001b[33m5\u001b[39m,\n  \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m\n]\n"
+                    },
+                    {
+                      "text": "-------------------------------\n"
+                    },
+                    {
+                      "text": "[ \u001b[32m'CHK'\u001b[39m, \u001b[32m'Colagem'\u001b[39m, \u001b[32m'ColagA07'\u001b[39m ]\n"
+                    },
+                    {
+                      "text": "-------------------------------\n"
+                    },
+                    {
+                      "text": "[ \u001b[32m'CHK_L_Champcork'\u001b[39m, \u001b[32m'CHK_L_30,5'\u001b[39m, \u001b[32m'CHK_L_Colagem'\u001b[39m ]\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-03-11T18:08:57.807Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8fb3b1a442b51201fd8d-10d3f741c5355ab41c24",
+          "file": "Automatismo.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2024-03-11T18:08:49.118Z",
+    "duration": 264353.693,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
