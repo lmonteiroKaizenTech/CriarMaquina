@@ -4,7 +4,7 @@ import * as XLSX from 'xlsx';
 
 // Configurações de conexão
 const sql = require('mssql');
-const config = require('../../../CRIARMÁQUINA/tests/dbConnection/connection.js');
+const config = require('../../../../CRIARMÁQUINA/tests/dbConnection/connection.js');
 test('CriarMinhaMáquina', async ({ page }) => {
     
     // Definindo o tipo de uma linha do Excel
