@@ -160,6 +160,78 @@ test('CriarMinhaMáquina', async ({ page }) => {
     console.log('-------------------------------');
     console.log(location);
 
+    let protocolo: any[] = [];
+    let CP_MAQUINA_PERMITE_PARAR_AUTOMACAO: any[] = [];
+    let CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO: any[] = [];
+    let CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO: any[] = [];
+    let CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO: any[] = [];
+    let CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE: any[] = [];
+    var soma = 0;
+    let aut: boolean = true;
+
+    let protocolo_preenchido: boolean = true;
+    let CP_MAQUINA_PERMITE_PARAR_AUTOMACAO_preenchido: boolean = true;
+    let CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO_preenchido: boolean = true;
+    let CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO_preenchido: boolean = true;
+    let CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO_preenchido: boolean = true;
+    let CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE_preenchido: boolean = true;
+
+    if (dadosExcel) {
+        for (var i = 0; i < 13; i++)
+        {
+            // Por exemplo, para armazenar os valores da segunda linha do Excel (índice 1)
+            const segundaLinha: LinhaExcel = dadosExcel[linha] as LinhaExcel;
+
+            switch (i) {
+                case 3:
+                    protocolo.push(segundaLinha['ProtocoloAutomacao'] as string);
+                    if (segundaLinha['ProtocoloAutomacao'] == 'Sim') soma++;
+                    else protocolo_preenchido = false;
+                    break;
+                case 5:
+                    CP_MAQUINA_PERMITE_PARAR_AUTOMACAO.push(segundaLinha['CP_MAQUINA_PERMITE_PARAR_AUTOMACAO'] as string);
+                    if (segundaLinha['CP_MAQUINA_PERMITE_PARAR_AUTOMACAO'] == 'Sim') soma++;
+                    else CP_MAQUINA_PERMITE_PARAR_AUTOMACAO_preenchido = false;
+                    break;
+                case 7:
+                    CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO.push(segundaLinha['CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO'] as string);
+                    if (segundaLinha['CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO'] == 'Sim') soma++;
+                    else CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO_preenchido = false;
+                    break;
+                case 9:
+                    CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO.push(segundaLinha['CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO'] as string);
+                    if (segundaLinha['CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO'] == 'Sim') soma++;
+                    else CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO_preenchido = false;
+                    break;
+                case 11:
+                    CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO.push(segundaLinha['CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO'] as string);
+                    if (segundaLinha['CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO'] == 'Sim') soma++;
+                    else CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO_preenchido = false;
+                    break;
+                case 13:
+                    CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE.push(segundaLinha['CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE'] as string);
+                    if (segundaLinha['CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE'] == 'Sim') soma++;
+                    else CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE_preenchido = false;
+                    break;
+            
+                default:
+                    break;
+            }
+            linha++;
+        }
+        if (soma == 6) aut = true;
+
+    } else {
+        console.log("Não foi possível ler os dados do arquivo Excel.");
+    }
+    console.log('-------------------------------');
+    console.log(protocolo);
+    console.log(CP_MAQUINA_PERMITE_PARAR_AUTOMACAO);
+    console.log(CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO);
+    console.log(CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO);
+    console.log(CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO);
+    console.log(CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE);
+
     // ------------------------------Gerar Key's------------------------------
 
     await page.goto('http://ktmesapp01/TS/pages/root/dev/osi_teste/pd0000002170/');
@@ -430,7 +502,36 @@ test('CriarMinhaMáquina', async ({ page }) => {
     await page.click('li:has-text("Maquina")');
     await page.waitForTimeout(3000);
     await page.fill('#tseditcp_CPS0000000013_CP0000000083', numero_maquina);
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
+    if (aut)
+    {
+        await page.selectOption('#tseditcp_CPS0000000013_CP0000000045',protocolo);
+        await page.waitForTimeout(3000);
+        if (CP_MAQUINA_PERMITE_PARAR_AUTOMACAO_preenchido)
+        {
+            await page.click('#tseditcp_CPS0000000013_CP0000000090');
+        }
+        else if (CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO_preenchido)
+        {
+            await page.click('#tseditcp_CPS0000000013_CP0000000090');
+        }
+        else if (CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO_preenchido)
+        {
+            await page.click('#tseditcp_CPS0000000013_CP0000000090');
+        }
+        else if (CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO_preenchido)
+        {
+            await page.click('#tseditcp_CPS0000000013_CP0000000090');
+        }
+        else if (CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE_preenchido)
+        {
+            await page.click('#tseditcp_CPS0000000013_CP0000000090');
+        }
+    }
+    else await page.selectOption('#tseditcp_CPS0000000013_CP0000000045','Sem Protocolo');
+
+    await page.waitForTimeout(3000);
+
     await page.click('#contentPage_Save_Button');
 
     await page.waitForTimeout(3000);
