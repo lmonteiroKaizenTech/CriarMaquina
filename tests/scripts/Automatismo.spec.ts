@@ -506,27 +506,22 @@ test('CriarMinhaMáquina', async ({ page }) => {
         await page.waitForTimeout(3000);
         if (CP_MAQUINA_PERMITE_PARAR_AUTOMACAO_preenchido)
         {
-            console.log('Entrei');
             await page.click('#tseditcp_CPS0000000013_CP0000000090');
         }
         if (CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO_preenchido)
         {
-            console.log('Entrei');
             await page.click('#tseditcp_CPS0000000013_CP0000000091');
         }
         if (CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO_preenchido)
         {
-            console.log('Entrei');
             await page.click('#tseditcp_CPS0000000013_CP0000000137');
         }
         if (CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO_preenchido)
         {
-            console.log('Entrei');
             await page.click('#tseditcp_CPS0000000013_CP0000000138');
         }
         if (CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE_preenchido)
         {
-            console.log('Entrei');
             await page.click('#tseditcp_CPS0000000013_CP0000000165');
         }
     }
