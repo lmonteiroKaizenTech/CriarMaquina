@@ -160,16 +160,15 @@ test('CriarMinhaMáquina', async ({ page }) => {
     console.log('-------------------------------');
     console.log(location);
 
-    let protocolo: any[] = [];
-    let CP_MAQUINA_PERMITE_PARAR_AUTOMACAO: any[] = [];
-    let CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO: any[] = [];
-    let CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO: any[] = [];
-    let CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO: any[] = [];
-    let CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE: any[] = [];
-    var soma = 0;
+    let protocolo;
+    let CP_MAQUINA_PERMITE_PARAR_AUTOMACAO;
+    let CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO;
+    let CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO;
+    let CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO;
+    let CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE;
+    var soma = 0, linha4 = 0;
     let aut: boolean = true;
 
-    let protocolo_preenchido: boolean = true;
     let CP_MAQUINA_PERMITE_PARAR_AUTOMACAO_preenchido: boolean = true;
     let CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO_preenchido: boolean = true;
     let CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO_preenchido: boolean = true;
@@ -180,46 +179,44 @@ test('CriarMinhaMáquina', async ({ page }) => {
         for (var i = 0; i < 13; i++)
         {
             // Por exemplo, para armazenar os valores da segunda linha do Excel (índice 1)
-            const segundaLinha: LinhaExcel = dadosExcel[linha] as LinhaExcel;
+            const segundaLinha: LinhaExcel = dadosExcel[linha4] as LinhaExcel;
 
             switch (i) {
-                case 3:
-                    protocolo.push(segundaLinha['ProtocoloAutomacao'] as string);
-                    if (segundaLinha['ProtocoloAutomacao'] == 'Sim') soma++;
-                    else protocolo_preenchido = false;
+                case 1:
+                    protocolo = segundaLinha['Campos Automação'] as string;
                     break;
-                case 5:
-                    CP_MAQUINA_PERMITE_PARAR_AUTOMACAO.push(segundaLinha['CP_MAQUINA_PERMITE_PARAR_AUTOMACAO'] as string);
-                    if (segundaLinha['CP_MAQUINA_PERMITE_PARAR_AUTOMACAO'] == 'Sim') soma++;
+                case 3:
+                    CP_MAQUINA_PERMITE_PARAR_AUTOMACAO = segundaLinha['Campos Automação'] as string;
+                    if (segundaLinha['Campos Automação'] == 'Sim') soma++;
                     else CP_MAQUINA_PERMITE_PARAR_AUTOMACAO_preenchido = false;
                     break;
-                case 7:
-                    CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO.push(segundaLinha['CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO'] as string);
-                    if (segundaLinha['CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO'] == 'Sim') soma++;
+                case 5:
+                    CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO = segundaLinha['Campos Automação'] as string;
+                    if (segundaLinha['Campos Automação'] == 'Sim') soma++;
                     else CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO_preenchido = false;
                     break;
-                case 9:
-                    CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO.push(segundaLinha['CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO'] as string);
-                    if (segundaLinha['CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO'] == 'Sim') soma++;
+                case 7:
+                    CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO = segundaLinha['Campos Automação'] as string;
+                    if (segundaLinha['Campos Automação'] == 'Sim') soma++;
                     else CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO_preenchido = false;
                     break;
-                case 11:
-                    CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO.push(segundaLinha['CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO'] as string);
-                    if (segundaLinha['CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO'] == 'Sim') soma++;
+                case 9:
+                    CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO = segundaLinha['Campos Automação'] as string;
+                    if (segundaLinha['Campos Automação'] == 'Sim') soma++;
                     else CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO_preenchido = false;
                     break;
-                case 13:
-                    CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE.push(segundaLinha['CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE'] as string);
-                    if (segundaLinha['CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE'] == 'Sim') soma++;
+                case 11:
+                    CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE = segundaLinha['Campos Automação'] as string;
+                    if (segundaLinha['Campos Automação'] == 'Sim') soma++;
                     else CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE_preenchido = false;
                     break;
             
                 default:
                     break;
             }
-            linha++;
+            linha4++;
         }
-        if (soma == 6) aut = true;
+        if (soma >= 1) aut = true;
 
     } else {
         console.log("Não foi possível ler os dados do arquivo Excel.");
@@ -509,23 +506,28 @@ test('CriarMinhaMáquina', async ({ page }) => {
         await page.waitForTimeout(3000);
         if (CP_MAQUINA_PERMITE_PARAR_AUTOMACAO_preenchido)
         {
+            console.log('Entrei');
             await page.click('#tseditcp_CPS0000000013_CP0000000090');
         }
-        else if (CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO_preenchido)
+        if (CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO_preenchido)
         {
-            await page.click('#tseditcp_CPS0000000013_CP0000000090');
+            console.log('Entrei');
+            await page.click('#tseditcp_CPS0000000013_CP0000000091');
         }
-        else if (CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO_preenchido)
+        if (CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO_preenchido)
         {
-            await page.click('#tseditcp_CPS0000000013_CP0000000090');
+            console.log('Entrei');
+            await page.click('#tseditcp_CPS0000000013_CP0000000137');
         }
-        else if (CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO_preenchido)
+        if (CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO_preenchido)
         {
-            await page.click('#tseditcp_CPS0000000013_CP0000000090');
+            console.log('Entrei');
+            await page.click('#tseditcp_CPS0000000013_CP0000000138');
         }
-        else if (CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE_preenchido)
+        if (CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE_preenchido)
         {
-            await page.click('#tseditcp_CPS0000000013_CP0000000090');
+            console.log('Entrei');
+            await page.click('#tseditcp_CPS0000000013_CP0000000165');
         }
     }
     else await page.selectOption('#tseditcp_CPS0000000013_CP0000000045','Sem Protocolo');
@@ -548,16 +550,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     var record10;
     try {
         await sql.connect(config)
-        record10 = await sql.query`update tTag set [Value] = 0 where [Name] like '%' + ${template.toString()} + '%'`; // select distinct
-    
-    } catch (e) {
-        console.log(e);
-    }
-
-    var record14;
-    try {
-        await sql.connect(config)
-        record14 = await sql.query`update tTag set [DefaultValue] = 0 where [Name] like '%' + ${template.toString()} + '%'`; // select distinct
+        record10 = await sql.query`UPDATE tTag SET [Value] = 0, [DefaultValue] = 0 WHERE [Name] LIKE '%' + ${template.toString()} + '%'`; // select distinct
     
     } catch (e) {
         console.log(e);
@@ -566,7 +559,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     var record1;
     try {
         await sql.connect(config)
-        record1 = await sql.query`update tTag set [Value] = 1 where [Name] = '' + ${template.toString()} + '.Ord.ConsomeItems'` // select distinct
+        record1 = await sql.query`update tTag set [Value] = 1, [DefaultValue] = 1 where [Name] = '' + ${template.toString()} + '.Ord.ConsomeItems'` // select distinct
     } catch (e) {
         console.log(e);
     }
@@ -574,7 +567,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     var record2;
     try {
         await sql.connect(config)
-        record2 = await sql.query`update tTag set [Value] = 1 where [Name] = '' + ${template.toString()} + '.Ord.ProduzItems'` // select distinct
+        record2 = await sql.query`update tTag set [Value] = 1, [DefaultValue] = 1 where [Name] = '' + ${template.toString()} + '.Ord.ProduzItems'` // select distinct
     
     } catch (e) {
         console.log(e);
@@ -583,7 +576,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     var record3;
     try {
         await sql.connect(config)
-        record3 = await sql.query`update tTag set [Value] = ${ProduzItemsDefinitionID} where [Name] = '' + ${template.toString()} + '.Ord.ProduzItemsDefinitionID'` // select distinct
+        record3 = await sql.query`update tTag set [Value] = ${ProduzItemsDefinitionID}, [DefaultValue] = ${ProduzItemsDefinitionID} where [Name] = '' + ${template.toString()} + '.Ord.ProduzItemsDefinitionID'` // select distinct
     
     } catch (e) {
         console.log(e);
@@ -592,7 +585,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     var record4;
     try {
         await sql.connect(config)
-        record4 = await sql.query`update tTag set [Value] = ${TaxaProducaoTeorica} where [Name] = '' + ${template.toString()} + '.Prod.TaxaProducaoTeorica'` // select distinct
+        record4 = await sql.query`update tTag set [Value] = ${TaxaProducaoTeorica}, [DefaultValue] = ${TaxaProducaoTeorica} where [Name] = '' + ${template.toString()} + '.Prod.TaxaProducaoTeorica'` // select distinct
     
     } catch (e) {
         console.log(e);
@@ -601,7 +594,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     var record5;
     try {
         await sql.connect(config)
-        record5 = await sql.query`update tTag set [Value] = ${EstadoMaquina} where [Name] = '' + ${template.toString()} + '.Evento.EstadoMaquina'` // select distinct
+        record5 = await sql.query`update tTag set [Value] = ${EstadoMaquina}, [DefaultValue] = ${EstadoMaquina} where [Name] = '' + ${template.toString()} + '.Evento.EstadoMaquina'` // select distinct
     
     } catch (e) {
         console.log(e);
@@ -619,7 +612,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
         var record6;
         try {
             await sql.connect(config)
-            record6 = await sql.query`update tTag set [Value] = ${ArmazemOrigemProduto[i-1].toString()} where [Name] = ${template.toString()} + ${columnName}`;
+            record6 = await sql.query`update tTag set [Value] = ${ArmazemOrigemProduto[i-1].toString()}, [DefaultValue] = ${ArmazemOrigemProduto[i-1].toString()} where [Name] = ${template.toString()} + ${columnName}`;
         
         } catch (e) {
             console.log(e);
@@ -634,7 +627,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
         var record13;
         try {
             await sql.connect(config)
-            record13 = await sql.query`update tTag set [Value] = ${ArmazemDestinoProduto[i-1].toString()} where [Name] = ${template.toString()} + ${columnName2}`;
+            record13 = await sql.query`update tTag set [Value] = ${ArmazemDestinoProduto[i-1].toString()}, [DefaultValue] = ${ArmazemDestinoProduto[i-1].toString()} where [Name] = ${template.toString()} + ${columnName2}`;
         
         } catch (e) {
             console.log(e);
@@ -649,7 +642,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
         var record14;
         try {
             await sql.connect(config)
-            record14 = await sql.query`update tTag set [Value] = ${ContentorTipoDestinoProduto[i-1].toString()} where [Name] = ${template.toString()} + ${columnName3}`;
+            record14 = await sql.query`update tTag set [Value] = ${ContentorTipoDestinoProduto[i-1].toString()}, [DefaultValue] = ${ContentorTipoDestinoProduto[i-1].toString()} where [Name] = ${template.toString()} + ${columnName3}`;
         
         } catch (e) {
             console.log(e);
@@ -664,7 +657,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
         var record15;
         try {
             await sql.connect(config)
-            record15 = await sql.query`update tTag set [Value] = ${ArmazemOrigemProduto[i-1].toString()} where [Name] = ${template.toString()} + ${columnName4}`;
+            record15 = await sql.query`update tTag set [Value] = ${ArmazemOrigemProduto[i-1].toString()}, [DefaultValue] = ${ArmazemOrigemProduto[i-1].toString()} where [Name] = ${template.toString()} + ${columnName4}`;
         
         } catch (e) {
             console.log(e);
