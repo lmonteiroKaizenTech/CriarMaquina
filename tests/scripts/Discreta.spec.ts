@@ -51,7 +51,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
         // Por exemplo, para acessar um valor específico de uma coluna, você pode usar a chave correspondente ao cabeçalho
         site = segundaLinha['Site'] as string;
         excel_AUT = segundaLinha['Excel AUT'] as string;
-        maquina = segundaLinha['Máquina'] as string;
+        maquina = segundaLinha['Nome da Área da Máquina'] as string;
         nome_maquina = segundaLinha['Nome Máquina'] as string;
         numero_maquina = segundaLinha['Número Máquina'] as string;
         tipo = segundaLinha['Tipo'] as string;

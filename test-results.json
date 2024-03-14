@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\playwright.config.js",
-    "rootDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/tests/scripts",
+    "configFile": "C:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\playwright.config.js",
+    "rootDir": "C:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/tests/scripts",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -10,9 +10,7 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 1
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "reporter": [
       [
@@ -33,12 +31,12 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/test-results",
+        "outputDir": "C:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "setup",
         "name": "setup",
-        "testDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/tests/scripts",
+        "testDir": "C:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/tests/scripts",
         "testIgnore": [],
         "testMatch": [
           "/.*\\.setup\\.ts/"
@@ -46,12 +44,12 @@
         "timeout": 500000
       },
       {
-        "outputDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/test-results",
+        "outputDir": "C:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "chromium",
         "name": "chromium",
-        "testDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/tests/scripts",
+        "testDir": "C:/Users/LeandroMonteiro/Desktop/CriarMaquinaGit/CriarMaquina/tests/scripts",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -62,217 +60,20 @@
     "shard": null,
     "updateSnapshots": "missing",
     "version": "1.41.2",
-    "workers": 1,
+    "workers": 4,
     "webServer": null
   },
-  "suites": [
+  "suites": [],
+  "errors": [
     {
-      "title": "auth.setup.ts",
-      "file": "auth.setup.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "authenticate",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 500000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "setup",
-              "projectName": "setup",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 5422,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2024-03-13T16:32:28.739Z",
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "17e3fe6f4d9d8bd79c6b-60f085b113a677673906",
-          "file": "auth.setup.ts",
-          "line": 5,
-          "column": 6
-        }
-      ]
-    },
-    {
-      "title": "Automatismo.spec.ts",
-      "file": "Automatismo.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "CriarMinhaMáquina",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 500000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "status": "passed",
-                  "duration": 281812,
-                  "errors": [],
-                  "stdout": [
-                    {
-                      "text": "[\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'ProtocoloAutomacao'\u001b[39m,\n    Site: \u001b[32m'http://ktmesapp04/TS/pages/home/'\u001b[39m,\n    \u001b[32m'Excel AUT'\u001b[39m: \u001b[32m'C:\\\\Users\\\\LeandroMonteiro\\\\Desktop\\\\disneyland.xlsx'\u001b[39m,\n    \u001b[32m'Máquina'\u001b[39m: \u001b[32m'Colagem'\u001b[39m,\n    \u001b[32m'Nome Máquina'\u001b[39m: \u001b[32m'CHK_Colagem_Sys_ColagA07'\u001b[39m,\n    \u001b[32m'Número Máquina'\u001b[39m: \u001b[32m'07'\u001b[39m,\n    Tipo: \u001b[32m'Discrete System'\u001b[39m,\n    Template: \u001b[32m'CHK_Colag.ColagA07'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'CHK'\u001b[39m,\n    Location: \u001b[32m'CHK_L_Champcork'\u001b[39m,\n    \u001b[32m'Nome Location'\u001b[39m: \u001b[32m'CHK_L_ColagA07'\u001b[39m,\n    \u001b[32m'Ord.ProduzItemsDefinitionID'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.TaxaProducaoTeorica'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Evento.EstadoMaquina'\u001b[39m: \u001b[33m1\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Protocolo CHK'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'Colagem'\u001b[39m,\n    Location: \u001b[32m'CHK_L_30,5'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m2\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_PARAR_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'ColagA07'\u001b[39m,\n    Location: \u001b[32m'CHK_L_Colagem'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m3\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Não'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m4\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m5\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m6\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m7\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m8\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m9\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m10\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE'\u001b[39m\n  },\n  { \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m }\n]\n"
-                    },
-                    {
-                      "text": "http://ktmesapp04/TS/pages/home/\n"
-                    },
-                    {
-                      "text": "C:\\Users\\LeandroMonteiro\\Desktop\\disneyland.xlsx\n"
-                    },
-                    {
-                      "text": "Colagem\n"
-                    },
-                    {
-                      "text": "CHK_Colagem_Sys_ColagA07\n"
-                    },
-                    {
-                      "text": "07\n"
-                    },
-                    {
-                      "text": "Discrete System\n"
-                    },
-                    {
-                      "text": "CHK_Colag.ColagA07\n"
-                    },
-                    {
-                      "text": "CHK_L_ColagA07\n"
-                    },
-                    {
-                      "text": "\u001b[33m1\u001b[39m\n"
-                    },
-                    {
-                      "text": "\u001b[33m1\u001b[39m\n"
-                    },
-                    {
-                      "text": "\u001b[33m1\u001b[39m\n"
-                    },
-                    {
-                      "text": "-------------------------------\n"
-                    },
-                    {
-                      "text": "[ \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m, \u001b[33m5\u001b[39m, \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m ]\n"
-                    },
-                    {
-                      "text": "[ \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m, \u001b[33m5\u001b[39m, \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m ]\n"
-                    },
-                    {
-                      "text": "[ \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m, \u001b[33m5\u001b[39m, \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m ]\n"
-                    },
-                    {
-                      "text": "[ \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m, \u001b[33m5\u001b[39m, \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m ]\n"
-                    },
-                    {
-                      "text": "-------------------------------\n"
-                    },
-                    {
-                      "text": "[ \u001b[32m'CHK'\u001b[39m, \u001b[32m'Colagem'\u001b[39m, \u001b[32m'ColagA07'\u001b[39m ]\n"
-                    },
-                    {
-                      "text": "-------------------------------\n"
-                    },
-                    {
-                      "text": "[ \u001b[32m'CHK_L_Champcork'\u001b[39m, \u001b[32m'CHK_L_30,5'\u001b[39m, \u001b[32m'CHK_L_Colagem'\u001b[39m ]\n"
-                    },
-                    {
-                      "text": "-------------------------------\n"
-                    },
-                    {
-                      "text": "Protocolo CHK\n"
-                    },
-                    {
-                      "text": "Não\n"
-                    },
-                    {
-                      "text": "Sim\n"
-                    },
-                    {
-                      "text": "Sim\n"
-                    },
-                    {
-                      "text": "Sim\n"
-                    },
-                    {
-                      "text": "Sim\n"
-                    },
-                    {
-                      "text": "Entrei\n"
-                    },
-                    {
-                      "text": "Entrei\n"
-                    },
-                    {
-                      "text": "Entrei\n"
-                    },
-                    {
-                      "text": "Entrei\n"
-                    },
-                    {
-                      "text": "TypeError: Cannot read properties of undefined (reading 'toString')\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mtests\\scripts\\Automatismo.spec.ts:615:93\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:345:9\n    at TestInfoImpl._runAndFailOnError \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:182:7\u001b[90m)\u001b[39m\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:341:7\n    at TimeoutRunner.run \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright-core\u001b[24m\\lib\\utils\\timeoutRunner.js:49:14\u001b[90m)\u001b[39m\n    at TimeoutManager.runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:74:7\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:169:26\u001b[90m)\u001b[39m\n    at WorkerMain._runTest \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:280:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:204:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:96:22\u001b[90m)\u001b[39m\n"
-                    },
-                    {
-                      "text": "TypeError: Cannot read properties of undefined (reading 'toString')\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mtests\\scripts\\Automatismo.spec.ts:630:95\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:345:9\n    at TestInfoImpl._runAndFailOnError \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:182:7\u001b[90m)\u001b[39m\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:341:7\n    at TimeoutRunner.run \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright-core\u001b[24m\\lib\\utils\\timeoutRunner.js:49:14\u001b[90m)\u001b[39m\n    at TimeoutManager.runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:74:7\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:169:26\u001b[90m)\u001b[39m\n    at WorkerMain._runTest \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:280:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:204:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:96:22\u001b[90m)\u001b[39m\n"
-                    },
-                    {
-                      "text": "TypeError: Cannot read properties of undefined (reading 'toString')\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mtests\\scripts\\Automatismo.spec.ts:645:101\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:345:9\n    at TestInfoImpl._runAndFailOnError \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:182:7\u001b[90m)\u001b[39m\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:341:7\n    at TimeoutRunner.run \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright-core\u001b[24m\\lib\\utils\\timeoutRunner.js:49:14\u001b[90m)\u001b[39m\n    at TimeoutManager.runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:74:7\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:169:26\u001b[90m)\u001b[39m\n    at WorkerMain._runTest \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:280:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:204:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:96:22\u001b[90m)\u001b[39m\n"
-                    },
-                    {
-                      "text": "TypeError: Cannot read properties of undefined (reading 'toString')\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mtests\\scripts\\Automatismo.spec.ts:660:94\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:345:9\n    at TestInfoImpl._runAndFailOnError \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:182:7\u001b[90m)\u001b[39m\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:341:7\n    at TimeoutRunner.run \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright-core\u001b[24m\\lib\\utils\\timeoutRunner.js:49:14\u001b[90m)\u001b[39m\n    at TimeoutManager.runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:74:7\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:169:26\u001b[90m)\u001b[39m\n    at WorkerMain._runTest \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:280:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:204:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:96:22\u001b[90m)\u001b[39m\n"
-                    },
-                    {
-                      "text": "TypeError: Cannot read properties of undefined (reading 'toString')\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mtests\\scripts\\Automatismo.spec.ts:615:93\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:345:9\n    at TestInfoImpl._runAndFailOnError \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:182:7\u001b[90m)\u001b[39m\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:341:7\n    at TimeoutRunner.run \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright-core\u001b[24m\\lib\\utils\\timeoutRunner.js:49:14\u001b[90m)\u001b[39m\n    at TimeoutManager.runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:74:7\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:169:26\u001b[90m)\u001b[39m\n    at WorkerMain._runTest \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:280:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:204:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:96:22\u001b[90m)\u001b[39m\n"
-                    },
-                    {
-                      "text": "TypeError: Cannot read properties of undefined (reading 'toString')\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mtests\\scripts\\Automatismo.spec.ts:630:95\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:345:9\n    at TestInfoImpl._runAndFailOnError \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:182:7\u001b[90m)\u001b[39m\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:341:7\n    at TimeoutRunner.run \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright-core\u001b[24m\\lib\\utils\\timeoutRunner.js:49:14\u001b[90m)\u001b[39m\n    at TimeoutManager.runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:74:7\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:169:26\u001b[90m)\u001b[39m\n    at WorkerMain._runTest \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:280:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:204:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:96:22\u001b[90m)\u001b[39m\n"
-                    },
-                    {
-                      "text": "TypeError: Cannot read properties of undefined (reading 'toString')\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mtests\\scripts\\Automatismo.spec.ts:645:101\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:345:9\n    at TestInfoImpl._runAndFailOnError \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:182:7\u001b[90m)\u001b[39m\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:341:7\n    at TimeoutRunner.run \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright-core\u001b[24m\\lib\\utils\\timeoutRunner.js:49:14\u001b[90m)\u001b[39m\n    at TimeoutManager.runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:74:7\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:169:26\u001b[90m)\u001b[39m\n    at WorkerMain._runTest \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:280:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:204:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:96:22\u001b[90m)\u001b[39m\n"
-                    },
-                    {
-                      "text": "TypeError: Cannot read properties of undefined (reading 'toString')\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mtests\\scripts\\Automatismo.spec.ts:660:94\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:345:9\n    at TestInfoImpl._runAndFailOnError \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:182:7\u001b[90m)\u001b[39m\n    at \u001b[90mc:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:341:7\n    at TimeoutRunner.run \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright-core\u001b[24m\\lib\\utils\\timeoutRunner.js:49:14\u001b[90m)\u001b[39m\n    at TimeoutManager.runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:74:7\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:169:26\u001b[90m)\u001b[39m\n    at WorkerMain._runTest \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:280:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:204:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaGit\\CriarMaquina\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:96:22\u001b[90m)\u001b[39m\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2024-03-13T16:32:36.393Z",
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "8fb3b1a442b51201fd8d-10d3f741c5355ab41c24",
-          "file": "Automatismo.spec.ts",
-          "line": 8,
-          "column": 5
-        }
-      ]
+      "message": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments.",
+      "stack": "Error: No tests found.\nMake sure that arguments are regular expressions matching test files.\nYou may need to escape symbols like \"$\" or \"*\" and quote the arguments.\n"
     }
   ],
-  "errors": [],
   "stats": {
-    "startTime": "2024-03-13T16:32:27.345Z",
-    "duration": 290965.474,
-    "expected": 2,
+    "startTime": "2024-03-14T16:34:45.329Z",
+    "duration": 730.6470000000002,
+    "expected": 0,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
