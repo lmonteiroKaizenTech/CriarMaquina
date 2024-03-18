@@ -5,6 +5,10 @@ import * as XLSX from 'xlsx';
 // Configurações de conexão
 const sql = require('mssql');
 const config = require('../../../../CRIARMÁQUINA/tests/dbConnection/connection.js');
+
+let ambientes_nome: any[] = ['AC_PRD','AC_QLD','AC_TST','AFL_PRD','AFL_QLD','AFL_TST','ACF_PRD','ACF_QLD','ACF_TST','ACC_PRD','ACC_QLD','ACC_TST','DEV','AQS_PRD','AQS_TST','ARC_PRD','ARC_TST','ACO_PRD','ACO_TST','CLP_PRD','CLP_TST','DISNEYLAND'];
+let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTMESAPP11','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01'];
+
 test('CriarMinhaMáquina', async ({ page }) => {
     
     // Definindo o tipo de uma linha do Excel
@@ -31,7 +35,40 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     // ------------------------------Recolher dados (Não tags)------------------------------
 
-    let site;
+        //------------Variáveis------------
+
+        let ambiente;
+        let site;
+    
+        if (dadosExcel) {
+            for (var i = 0; i < 4; i++)
+            {
+                // Por exemplo, para armazenar os valores da segunda linha do Excel (índice 1)
+                const segundaLinha: LinhaExcel = dadosExcel[i] as LinhaExcel;
+    
+                if (i == 1) ambiente = segundaLinha['Site'] as string;
+    
+                if (i == 3) site = segundaLinha['Site'] as string;
+    
+            }
+        } else {
+            console.log("Não foi possível ler os dados do arquivo Excel.");
+        }
+        console.log(ambiente);
+        console.log(site);
+    
+        var position = 0;
+        for (var i = 0; i < ambientes_nome.length; i++)
+        {
+            if (ambiente == ambientes_nome[i]) position = i;
+        }
+    
+        let ambiente_final;
+        for (var i = 0; i < ambientes_links.length; i++)
+        {
+            if (i == position) ambiente_final = ambientes_links[i];
+        }
+
     let excel_AUT;
     let maquina;
     let nome_maquina;
@@ -49,7 +86,6 @@ test('CriarMinhaMáquina', async ({ page }) => {
         const segundaLinha: LinhaExcel = dadosExcel[0] as LinhaExcel;
 
         // Por exemplo, para acessar um valor específico de uma coluna, você pode usar a chave correspondente ao cabeçalho
-        site = segundaLinha['Site'] as string;
         excel_AUT = segundaLinha['Excel AUT'] as string;
         maquina = segundaLinha['Nome da Área da Máquina'] as string;
         nome_maquina = segundaLinha['Nome Máquina'] as string;
@@ -60,7 +96,6 @@ test('CriarMinhaMáquina', async ({ page }) => {
         ProduzItemsDefinitionID = segundaLinha['Ord.ProduzItemsDefinitionID'] as string;
         TaxaProducaoTeorica = segundaLinha['Prod.TaxaProducaoTeorica'] as string;
         EstadoMaquina = segundaLinha['Evento.EstadoMaquina'] as string;
-        console.log(site);
         console.log(excel_AUT);
         console.log(maquina);
         console.log(nome_maquina);
@@ -265,7 +300,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     // ------------------------------Começar Criação de Máquina de Forma Automática------------------------------
 
-    await page.goto(site + 'config/tags/import');
+    await page.goto('http://' + ambiente_final + '/TS/pages/' + site +'/config/tags/import');
 
     await page.waitForTimeout(3000);
 
