@@ -1,19 +1,19 @@
-import { test as setup } from '@playwright/test';
+// import { test as setup } from '@playwright/test';
 
-const authFile = 'playwright/.auth/user.json';
+// const authFile = 'playwright/.auth/user.json';
 
-setup('authenticate', async ({ page }) => {
+// setup('authenticate', async ({ page }) => {
 
-  await page.goto('http://ktmesapp04/TS/Account/LogOn.aspx?ts_deny=true&ts_rurl=%2fTS%2fdefault.aspx');
-  await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
-  await page.getByLabel('Password').click();
-  await page.getByLabel('Password').fill('12345'); // password
-  await page.getByRole('button', { name: 'Sign In' }).click();
+//   await page.goto('http://ktmesapp04/TS/Account/LogOn.aspx?ts_deny=true&ts_rurl=%2fTS%2fdefault.aspx');
+//   await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
+//   await page.getByLabel('Password').click();
+//   await page.getByLabel('Password').fill('12345'); // password
+//   await page.getByRole('button', { name: 'Sign In' }).click();
 
-  await page.waitForURL('http://ktmesapp04/TS/pages/root/config/products/materials/');
+//   await page.waitForURL('http://ktmesapp04/TS/pages/root/config/products/materials/');
 
-  await page.context().storageState({ path: authFile });
-});
+//   await page.context().storageState({ path: authFile });
+// });
 
 /*
 setup('logicON', async ({ page }) => {

@@ -30,7 +30,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     }
     
     // Exemplo de uso
-    const dadosExcel = lerArquivoExcel('C:\\Users\\LeandroMonteiro\\Desktop\\CriarMáquina.xlsx');
+    const dadosExcel = lerArquivoExcel('C:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaFilho.xlsx');
     console.log(dadosExcel);
 
     // ------------------------------Recolher dados (Não tags)------------------------------
@@ -297,6 +297,22 @@ test('CriarMinhaMáquina', async ({ page }) => {
     // await page.click('.btn-item-key-btn_GerarKey');
     // await page.waitForTimeout(3000);
     // const location = await page.locator('#contentPage_ctl25').textContent();
+
+    // ---------------Login Site Principal---------------
+
+    await page.goto('http://' + ambiente_final + '/TS/');
+    await page.waitForTimeout(3000);
+    //Verificação de Login
+    const currentURL = page.url();
+    if (currentURL == 'http://' + ambiente_final +'/TS/Account/LogOn.aspx?ts_deny=true&ts_rurl=%2fTS%2fdefault.aspx')
+    {
+        await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
+        await page.getByLabel('Password').click();
+        await page.getByLabel('Password').fill('12345'); // password
+        await page.getByRole('button', { name: 'Sign In' }).click();
+        
+        await page.waitForURL('http://' + ambiente_final + '/TS/pages/root/config/products/materials/');
+    }
 
     // ------------------------------Começar Criação de Máquina de Forma Automática------------------------------
 

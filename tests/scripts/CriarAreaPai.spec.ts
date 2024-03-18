@@ -50,7 +50,7 @@ test('CriarAreaPai', async ({ page }) => {
     
     // Exemplo de uso
     const dadosExcel = lerArquivoExcel('C:\\Users\\LeandroMonteiro\\Desktop\\CriarAreaMaquina.xlsx');
-    console.log(dadosExcel);
+    //console.log(dadosExcel);
 
     // ------------------------------Recolher dados------------------------------
 
@@ -199,6 +199,22 @@ test('CriarAreaPai', async ({ page }) => {
     if (key2) final_key2 = key2.trim();
 
     await page.waitForTimeout(3000);
+
+    // ---------------Login Site Principal---------------
+    
+    await page.goto('http://' + ambiente_final + '/TS/');
+    await page.waitForTimeout(3000);
+    //Verificação de Login
+    const currentURL = page.url();
+    if (currentURL == 'http://' + ambiente_final +'/TS/Account/LogOn.aspx?ts_deny=true&ts_rurl=%2fTS%2fdefault.aspx')
+    {
+        await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
+        await page.getByLabel('Password').click();
+        await page.getByLabel('Password').fill('12345'); // password
+        await page.getByRole('button', { name: 'Sign In' }).click();
+      
+        await page.waitForURL('http://' + ambiente_final + '/TS/pages/root/config/products/materials/');
+    }
 
     // ---------------Criar Área---------------
 
@@ -453,6 +469,266 @@ test('CriarAreaPai', async ({ page }) => {
     await page.fill('#tseditAltName', Notes);
     await page.waitForTimeout(3000);
     await page.click('#contentPage_Save_Button');
+    await page.waitForTimeout(3000);
+
+    // ----------------------Criar Máquina Pai ou individual----------------------
+
+    // --------Recolha de dados--------
+
+// Função para ler o arquivo Excel
+function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
+    // Carrega o arquivo
+    const workbook = XLSX.readFile(nomeArquivo);
+
+    // Pega a primeira planilha do arquivo
+    const primeiraPlanilha = workbook.Sheets[workbook.SheetNames[0]];
+
+    // Converte os dados da planilha em um objeto JSON
+    const dados = XLSX.utils.sheet_to_json(primeiraPlanilha, { header: 1 }) as string[][];
+
+    // Extrai os cabeçalhos da primeira linha
+    const colunas = dados[0];
+
+    // Inicializa um array para armazenar os dados
+    const dadosFormatados: LinhaExcel[] = [];
+
+    // Itera sobre as linhas de dados, começando da segunda linha
+    for (let i = 1; i < dados.length; i++) {
+        const linha: LinhaExcel = {};
+        // Itera sobre as colunas
+        for (let j = 0; j < colunas.length; j++) {
+            const valor = dados[i][j];
+            linha[colunas[j]] = valor !== undefined ? valor.toString() : null;
+        }
+        dadosFormatados.push(linha);
+    }
+
+    // Retorna os dados formatados
+    return dadosFormatados;
+}
+    
+    // Exemplo de uso
+    const dadosExcel2 = lerArquivoExcel2('C:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaPai.xlsx');
+    console.log(dadosExcel2);
+
+    let tipomaquina, templatetags, locationname, area;
+
+    // Verifica se os dados foram lidos corretamente
+    if (dadosExcel2) {
+        // Por exemplo, para armazenar os valores da segunda linha do Excel (índice 1)
+        const segundaLinha: LinhaExcel = dadosExcel2[0] as LinhaExcel;
+
+        // Por exemplo, para acessar um valor específico de uma coluna, você pode usar a chave correspondente ao cabeçalho
+        tipomaquina = segundaLinha['Tipo'] as string;
+        templatetags = segundaLinha['Template Tags'] as string;
+        locationname = segundaLinha['Nome da Location'] as string;
+        area = segundaLinha['Area da Maquina'] as string;
+        console.log(tipomaquina);
+        console.log(templatetags);
+        console.log(locationname);
+        console.log(area);
+
+    } else {
+        console.log("Não foi possível ler os dados do arquivo Excel.");
+    }
+
+    var linha3 = 0;
+    let location: any[] = [];
+
+    while (1 < 2)
+    {
+        const segundaLinha: LinhaExcel = dadosExcel2[linha3] as LinhaExcel; 
+        const prov = segundaLinha['Location'];
+        if (prov) location.push(segundaLinha['Location'] as string);
+        else break;
+        linha3++;
+    }
+
+    console.log('-------------------------------');
+    console.log(location);
+
+    let name, schedule, script, numero_maquina, protocolo_automacao, alternate_name;
+
+    if (dadosExcel2) {
+        for (var i = 0; i < 4; i++)
+        {
+            // Por exemplo, para armazenar os valores da segunda linha do Excel (índice 1)
+            const segundaLinha: LinhaExcel = dadosExcel2[i] as LinhaExcel;
+
+            switch (i) {
+                case 1:
+                    name = segundaLinha['General'] as string;
+                    script = segundaLinha['Advanced'] as string;
+                    numero_maquina = segundaLinha['Maquina'] as string;
+                    alternate_name = segundaLinha['Notes'] as string;
+                    break;
+                case 3:
+                    schedule = segundaLinha['General'] as string;
+                    protocolo_automacao = segundaLinha['Maquina'] as string;
+                    break;
+                default:
+                    break;
+            }
+        }
+    } else {
+        console.log("Não foi possível ler os dados do arquivo Excel.");
+    }
+    console.log('-----------------' + name + '-----------------');
+
+    // --------Criar Máquina--------
+
+    // ---------------Gerar Key Location---------------
+
+    await page.goto('http://ktmesapp01/TS/pages/root/dev/osi_teste/pd0000002170/');
+
+    await page.click('#contentPage_ctl25');
+    await page.click('.btn-item-key-btn_GerarKey');
+    await page.waitForTimeout(3000);
+    const keylacation = await page.locator('#contentPage_ctl04').textContent();
+    let final_keylocation
+    if (keylacation) final_keylocation = keylacation.trim();
+
+    // ---------------Criar Location---------------
+
+    await page.goto('http://ktmesapp04/TS/pages/home/config/locations/');
+
+    await page.waitForTimeout(3000);
+    for (var i = 0; i < location.length; i++)
+    {
+        await page.getByText(new RegExp("^" + location[i] + "$", "i")).click();
+        await page.waitForTimeout(3000);
+    }
+
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("New Child")`);
+    await page.waitForTimeout(3000);
+    await page.fill('#tseditName', locationname);
+    await page.waitForTimeout(2000);
+    if (final_keylocation) await page.fill('#tseditUniqueID', final_keylocation);
+    await page.waitForTimeout(2000);
+    await page.selectOption('#tseditLocationTypeID','LT_Maquinas');
+    await page.waitForTimeout(2000);
+    await page.click('#contentPage_Save_Button');
+    await page.waitForTimeout(5000);
+
+    await page.goto('http://ktmesapp04/TS/pages/home/config/tags/');
+    await page.waitForTimeout(3000);
+
+    await page.click(`li:has-text("Template")`);
+    await page.click(`li:has-text("Multi")`);
+    await page.click(`li:has-text("MultiXX")`);
+    await page.waitForTimeout(3000);
+    await page.click(`a:has-text("Duplicate")`);
+
+    if (site == "home") await page.fill('#contentPage_slice2_FromPrefixInput', 'CHK.CHK_MULTI.MultiXX');
+    else await page.fill('#contentPage_slice2_FromPrefixInput', site + '.' + site + '_MULTI.MultiXX');
+
+    await page.fill('#contentPage_slice2_ToPrefixInput', templatetags);
+    await page.waitForTimeout(3000);
+
+    await page.click('#contentPage_slice2_DuplicateButton');
+    
+    await page.waitForTimeout(3000);
+
+    const va1 = await page.locator(`li:has-text("MultiXX")`).nth(1);
+    const vatextoHandle1 = await va1.first();
+    await vatextoHandle1.click();
+
+    await page.waitForTimeout(3000);
+    await page.click('.fa-edit');
+    await page.waitForTimeout(3000);
+    await page.fill('#tseditName', templatetags);
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_Save_Button');
+    await page.waitForTimeout(3000);
+
+    await page.click(`a:has-text("Move")`);
+    await page.waitForTimeout(3000);
+
+    await page.click(`span:has-text("Expand All")`);
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("${area}")`);
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_slice2_Move');
+
+    await page.waitForTimeout(3000);
+
+    await page.click(`li:has-text("Systems")`);
+    await page.waitForTimeout(3000);
+
+    for (var i = 0; i < CaminhoArea.length; i++) await page.click(`li:has-text("${CaminhoArea[i]}")`);
+
+    await page.click(`li:has-text("${General}")`);
+    await page.waitForTimeout(3000);
+    const va2 = await page.locator(`a:has-text("New")`).nth(2);
+    const vatextoHandle2 = await va2.first();
+    await vatextoHandle2.click();
+    //await page.getByTitle(tipomaquina).click();
+    await page.getByText(tipomaquina).click();
+    await page.waitForTimeout(3000);
+    await page.fill('#tseditName', name);
+    await page.waitForTimeout(3000);
+    const clicar = await page.locator('.glyphicon-new-window').first();
+    if (clicar) clicar.click();
+    await page.waitForTimeout(3000);
+    
+    await page.click(`a:has-text("Expand All")`);
+    await page.click(`li:has-text("${schedule}")`);
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_Picker_ScheduleID_AssignButton');
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("Event Splits")`);
+    await page.waitForTimeout(3000);
+    await page.click('#tseditSplitEventOnDayChange');
+    await page.click('#tseditSplitEventOnShiftChange');
+    await page.click('#tseditSplitEventOnProductChange');
+    await page.click('#tseditSplitEventOnJobChange');
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("Job")`);
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_tseditJobTagID_Picker');
+    await page.fill('#contentPage_Picker_JobTagID_Name_TextBox',templatetags + '.Ord.Ordem');
+    await page.click('#contentPage_Picker_JobTagID_Find_Button');
+    await page.waitForTimeout(2000);
+    const clicarbut = await page.locator(`button:has-text("Assign")`).first();
+    await page.waitForTimeout(2000);
+    if (clicarbut) clicarbut.click();
+    await page.waitForTimeout(3000);
+    const segundo = await page.locator(`li:has-text("Product")`).nth(2);
+    const vatextoHandle3 = await segundo.first();
+    await vatextoHandle3.click();
+    await page.waitForTimeout(5000);
+    await page.click('#contentPage_tseditProductTagID_Picker');
+    await page.fill('#contentPage_Picker_ProductTagID_Name_TextBox', templatetags + '.Prod.CodigoProduto');
+    await page.click('#contentPage_Picker_ProductTagID_Find_Button');
+    await page.waitForTimeout(3000);
+    const clicarbut2 = await page.locator(`button:has-text("Assign")`).first();
+    await page.waitForTimeout(2000);
+    if (clicarbut2) clicarbut2.click();
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("Advanced")`);
+
+    if (script) await page.fill('#tseditScriptClassName',script);
+
+    await page.fill('#tseditTemplateTagPrefix', templatetags);
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_tseditLocationID_Picker');
+    await page.waitForTimeout(3000);
+    await page.click(`a:has-text("Expand All")`);
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("${locationname}")`);
+    await page.waitForTimeout(3000);
+    await page.click("#contentPage_Picker_LocationID_AssignButton");
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("Maquina")`);
+    await page.waitForTimeout(3000);
+    if (numero_maquina) await page.fill('#tseditcp_CPS0000000013_CP0000000083', numero_maquina);
+    await page.selectOption('#tseditcp_CPS0000000013_CP0000000045', protocolo_automacao);
+    await page.waitForTimeout(3000);
+    if (alternate_name) await page.fill('#tseditAltName', alternate_name);
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_Save_Button');
+    await page.waitForTimeout(5000);
 
     await page.close();
 
