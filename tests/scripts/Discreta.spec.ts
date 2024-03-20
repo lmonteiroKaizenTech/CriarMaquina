@@ -4,10 +4,10 @@ import * as XLSX from 'xlsx';
 
 // Configurações de conexão
 const sql = require('mssql');
-const config = require('../../../../CRIARMÁQUINA/tests/dbConnection/connection.js');
+const config = require('../../../CRIARMAQUINA/tests/dbConnection/connection.js');
 
-let ambientes_nome: any[] = ['AC_PRD','AC_QLD','AC_TST','AFL_PRD','AFL_QLD','AFL_TST','ACF_PRD','ACF_QLD','ACF_TST','ACC_PRD','ACC_QLD','ACC_TST','DEV','AQS_PRD','AQS_TST','ARC_PRD','ARC_TST','ACO_PRD','ACO_TST','CLP_PRD','CLP_TST','DISNEYLAND'];
-let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTMESAPP11','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01'];
+let ambientes_nome: any[] = ['AC_PRD','AC_QLD','AC_TST','AFL_PRD','AFL_QLD','AFL_TST','ACF_PRD','ACF_QLD','ACF_TST','ACC_PRD','ACC_QLD','ACC_TST','DEV','AQS_PRD','AQS_TST','ARC_PRD','ARC_TST','ACO_PRD','ACO_TST','CLP_PRD','CLP_TST','DISNEYLAND','MCS_TST'];
+let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTARCMESAPP01','KTMESAPP11','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01','ktmesapp06'];
 
 test('CriarMinhaMáquina', async ({ page }) => {
     
@@ -486,7 +486,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     await page.selectOption('#tseditLocationTypeID','LT_Maquinas');
     await page.waitForTimeout(2000);
     await page.click('#contentPage_Save_Button');
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(10000);
 
     //-----------------Criar Máquina------------------
 
@@ -511,7 +511,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     // ------------------------------------------------
 
-    const clique = await page.locator(`li:has-text("Systems")`).first();
+    const clique = await page.locator(`li:text("Systems")`).first();
     if (clique) clique.click();
     
     await page.click('#contentPage_slice1_TreeList_Tree_TreeView');
