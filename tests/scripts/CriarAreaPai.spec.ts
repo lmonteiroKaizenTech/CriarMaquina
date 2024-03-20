@@ -4,12 +4,12 @@ import * as XLSX from 'xlsx';
 
 // Configurações de conexão
 const sql = require('mssql');
-const config = require('../../../../CRIARMÁQUINA/tests/dbConnection/connection.js');
+const config = require('../../../CRIARMAQUINA/tests/dbConnection/connection.js');
 
 // -----------Ambientes-----------
 
-let ambientes_nome: any[] = ['AC_PRD','AC_QLD','AC_TST','AFL_PRD','AFL_QLD','AFL_TST','ACF_PRD','ACF_QLD','ACF_TST','ACC_PRD','ACC_QLD','ACC_TST','DEV','AQS_PRD','AQS_TST','ARC_PRD','ARC_TST','ACO_PRD','ACO_TST','CLP_PRD','CLP_TST','DISNEYLAND'];
-let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTMESAPP11','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01'];
+let ambientes_nome: any[] = ['AC_PRD','AC_QLD','AC_TST','AFL_PRD','AFL_QLD','AFL_TST','ACF_PRD','ACF_QLD','ACF_TST','ACC_PRD','ACC_QLD','ACC_TST','DEV','AQS_PRD','AQS_TST','ARC_PRD','ARC_TST','ACO_PRD','ACO_TST','CLP_PRD','CLP_TST','DISNEYLAND','MCS_TST'];
+let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTMESAPP11','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01','ktmesapp06'];
 
 test('CriarAreaPai', async ({ page }) => {
 
@@ -203,18 +203,18 @@ test('CriarAreaPai', async ({ page }) => {
     // ---------------Login Site Principal---------------
     
     await page.goto('http://' + ambiente_final + '/TS/');
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(3000);
     //Verificação de Login
     const currentURL = page.url();
-    await page.waitForTimeout(2000);
-    if (currentURL.includes('http://' + ambiente_final + '/TS/Account/LogOn.aspx'))
+    if (currentURL == 'http://' + ambiente_final +'/TS/Account/LogOn.aspx?ts_deny=true&ts_rurl=%2fTS%2fdefault.aspx')
     {
         await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
         await page.getByLabel('Password').click();
         await page.getByLabel('Password').fill('12345'); // password
         await page.getByRole('button', { name: 'Sign In' }).click();
+      
+        await page.waitForURL('http://' + ambiente_final + '/TS/pages/root/config/products/materials/');
     }
-    await page.waitForTimeout(3000);
 
     // ---------------Criar Área---------------
 
@@ -547,7 +547,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     console.log('-------------------------------');
     console.log(location);
 
-    let name, schedule, script, numero_maquina, protocolo_automacao, alternate_name, KPI;
+    let name, schedule, script, numero_maquina, protocolo_automacao, alternate_name;
 
     if (dadosExcel2) {
         for (var i = 0; i < 4; i++)
@@ -561,7 +561,6 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
                     script = segundaLinha['Advanced'] as string;
                     numero_maquina = segundaLinha['Maquina'] as string;
                     alternate_name = segundaLinha['Notes'] as string;
-                    KPI = segundaLinha['KPI'] as string;
                     break;
                 case 3:
                     schedule = segundaLinha['General'] as string;
@@ -659,25 +658,22 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
 
     for (var i = 0; i < CaminhoArea.length; i++) await page.click(`li:has-text("${CaminhoArea[i]}")`);
 
-    await page.waitForTimeout(3000);
-
-    await page.click(`li:text("${General}")`);
+    await page.click(`li:has-text("${General}")`);
     await page.waitForTimeout(3000);
     const va2 = await page.locator(`a:has-text("New")`).nth(2);
     const vatextoHandle2 = await va2.first();
     await vatextoHandle2.click();
     //await page.getByTitle(tipomaquina).click();
-    await page.waitForTimeout(3000);
     await page.getByText(tipomaquina).click();
     await page.waitForTimeout(3000);
     await page.fill('#tseditName', name);
     await page.waitForTimeout(3000);
-    const clicar = await page.locator('#contentPage_tseditScheduleID_Picker').first();
+    const clicar = await page.locator('.glyphicon-new-window').first();
     if (clicar) clicar.click();
     await page.waitForTimeout(3000);
     
     await page.click(`a:has-text("Expand All")`);
-    await page.click(`li:text("${schedule}")`);
+    await page.click(`li:has-text("${schedule}")`);
     await page.waitForTimeout(3000);
     await page.click('#contentPage_Picker_ScheduleID_AssignButton');
     await page.waitForTimeout(3000);
@@ -698,7 +694,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     await page.waitForTimeout(2000);
     if (clicarbut) clicarbut.click();
     await page.waitForTimeout(3000);
-    const segundo = await page.locator(`li:has-text("Product")`).nth(6);
+    const segundo = await page.locator(`li:has-text("Product")`).nth(2);
     const vatextoHandle3 = await segundo.first();
     await vatextoHandle3.click();
     await page.waitForTimeout(5000);
@@ -727,53 +723,12 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     await page.click(`li:has-text("Maquina")`);
     await page.waitForTimeout(3000);
     if (numero_maquina) await page.fill('#tseditcp_CPS0000000013_CP0000000083', numero_maquina);
-    await page.locator(`li:has-text("Maquina")`);
     await page.selectOption('#tseditcp_CPS0000000013_CP0000000045', protocolo_automacao);
     await page.waitForTimeout(3000);
     if (alternate_name) await page.fill('#tseditAltName', alternate_name);
     await page.waitForTimeout(3000);
     await page.click('#contentPage_Save_Button');
     await page.waitForTimeout(5000);
-
-    // -------------------KPI's Máquina Pai-------------------
-
-    // await page.getByTitle(name).click();
-    // await page.waitForTimeout(3000);
-    // await page.click(`li:has-text("KPI Calculations")`);
-    // await page.waitForTimeout(3000);
-    // await page.click(`a:has-text("New")`);
-    // await page.waitForTimeout(3000);
-    // await page.fill('#tseditName','OEE');
-    // await page.selectOption('#tseditOeeCalculationTypeID','KPI_Producao');
-    // await page.waitForTimeout(3000);
-    // await page.click(`li:has-text("Rates")`);
-    // await page.waitForTimeout(3000);
-    // const primeiro = await page.getByTitle('Constant').first();
-    // if (primeiro) primeiro.click();
-    // await page.waitForTimeout(3000);
-    // const primeiro_segundo = await page.locator('.glyphicon-tag').first();
-    // if (primeiro_segundo) primeiro_segundo.click();
-    // await page.waitForTimeout(3000),
-    // await page.fill('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Name_TextBox', templatetags + '.Prod.TaxaProducaoTeorica');
-    // await page.waitForTimeout(3000);
-    // await page.click('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Find_Button');
-    // await page.waitForTimeout(3000);
-    // await page.click('button:has-text("Assign")');
-    // await page.waitForTimeout(3000);
-    // await page.selectOption('#tseditTargetRateUnitType','Units per Minute');
-    // await page.waitForTimeout(3000);
-    // await page.fill('#tseditScriptClassName','OeeCalculationScriptKPI2ITEM');
-    // await page.waitForTimeout(3000);
-    // await page.click('#contentPage_Save_Button');
-    // await page.waitForTimeout(3000);
-    // await page.getByTitle('OEE').click();
-    // await page.waitForTimeout(3000);
-    // await page.click(`li:has-text("Good")`);
-    // await page.waitForTimeout(3000);
-    // await page.click(`a:has-text("New")`);
-    // await page.waitForTimeout(3000);
-    // await page.fill('#tseditName','ProdutoXX');
-    // await page.waitForTimeout(3000);
 
     await page.close();
 
