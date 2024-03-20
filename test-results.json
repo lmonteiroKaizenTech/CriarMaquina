@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaTeste\\CriarMaquina\\playwright.config.js",
-    "rootDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaTeste/CriarMaquina/tests/scripts",
+    "configFile": "c:\\Users\\DiogoCarvalho\\OneDrive - KAIZEN TECH, S.A\\Ambiente de Trabalho\\CriarMaquinaAutomatica\\CriarMaquina\\playwright.config.js",
+    "rootDir": "c:/Users/DiogoCarvalho/OneDrive - KAIZEN TECH, S.A/Ambiente de Trabalho/CriarMaquinaAutomatica/CriarMaquina/tests/scripts",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -33,12 +33,12 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaTeste/CriarMaquina/test-results",
+        "outputDir": "c:/Users/DiogoCarvalho/OneDrive - KAIZEN TECH, S.A/Ambiente de Trabalho/CriarMaquinaAutomatica/CriarMaquina/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "setup",
         "name": "setup",
-        "testDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaTeste/CriarMaquina/tests/scripts",
+        "testDir": "c:/Users/DiogoCarvalho/OneDrive - KAIZEN TECH, S.A/Ambiente de Trabalho/CriarMaquinaAutomatica/CriarMaquina/tests/scripts",
         "testIgnore": [],
         "testMatch": [
           "/.*\\.setup\\.ts/"
@@ -46,12 +46,12 @@
         "timeout": 500000
       },
       {
-        "outputDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaTeste/CriarMaquina/test-results",
+        "outputDir": "c:/Users/DiogoCarvalho/OneDrive - KAIZEN TECH, S.A/Ambiente de Trabalho/CriarMaquinaAutomatica/CriarMaquina/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "chromium",
         "name": "chromium",
-        "testDir": "c:/Users/LeandroMonteiro/Desktop/CriarMaquinaTeste/CriarMaquina/tests/scripts",
+        "testDir": "c:/Users/DiogoCarvalho/OneDrive - KAIZEN TECH, S.A/Ambiente de Trabalho/CriarMaquinaAutomatica/CriarMaquina/tests/scripts",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -87,30 +87,30 @@
                 {
                   "workerIndex": 0,
                   "status": "failed",
-                  "duration": 60095,
+                  "duration": 250375,
                   "error": {
-                    "message": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- waiting for getByText(/^CHK$/i)\u001b[22m\n",
-                    "stack": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- waiting for getByText(/^CHK$/i)\u001b[22m\n\n    at c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaTeste\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts:338:68",
+                    "message": "Error: page.click: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- waiting for locator('li:has-text(\"XXX\")')\u001b[22m\n",
+                    "stack": "Error: page.click: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- waiting for locator('li:has-text(\"XXX\")')\u001b[22m\n\n    at c:\\Users\\DiogoCarvalho\\OneDrive - KAIZEN TECH, S.A\\Ambiente de Trabalho\\CriarMaquinaAutomatica\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts:557:16",
                     "location": {
-                      "file": "c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaTeste\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts",
-                      "column": 68,
-                      "line": 338
+                      "file": "c:\\Users\\DiogoCarvalho\\OneDrive - KAIZEN TECH, S.A\\Ambiente de Trabalho\\CriarMaquinaAutomatica\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts",
+                      "column": 16,
+                      "line": 557
                     },
-                    "snippet": "\u001b[0m \u001b[90m 336 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mvar\u001b[39m i \u001b[33m=\u001b[39m \u001b[35m0\u001b[39m\u001b[33m;\u001b[39m i \u001b[33m<\u001b[39m tags\u001b[33m.\u001b[39mlength\u001b[33m;\u001b[39m i\u001b[33m++\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 337 |\u001b[39m     {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 338 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[36mnew\u001b[39m \u001b[33mRegExp\u001b[39m(\u001b[32m\"^\"\u001b[39m \u001b[33m+\u001b[39m tags[i] \u001b[33m+\u001b[39m \u001b[32m\"$\"\u001b[39m\u001b[33m,\u001b[39m \u001b[32m\"i\"\u001b[39m))\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 339 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 340 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 341 |\u001b[39m\u001b[0m"
+                    "snippet": "\u001b[0m \u001b[90m 555 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 556 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 557 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m`li:has-text(\"XXX\")`\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 558 |\u001b[39m     \u001b[0m\n\u001b[0m \u001b[90m 559 |\u001b[39m     \u001b[36mconst\u001b[39m va2 \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.fa-share'\u001b[39m)\u001b[33m.\u001b[39mnth(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 560 |\u001b[39m     \u001b[36mconst\u001b[39m vatextoHandle2 \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m va2\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\u001b[0m"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaTeste\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts",
-                        "column": 68,
-                        "line": 338
+                        "file": "c:\\Users\\DiogoCarvalho\\OneDrive - KAIZEN TECH, S.A\\Ambiente de Trabalho\\CriarMaquinaAutomatica\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts",
+                        "column": 16,
+                        "line": 557
                       },
-                      "message": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- waiting for getByText(/^CHK$/i)\u001b[22m\n\n\n\u001b[0m \u001b[90m 336 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mvar\u001b[39m i \u001b[33m=\u001b[39m \u001b[35m0\u001b[39m\u001b[33m;\u001b[39m i \u001b[33m<\u001b[39m tags\u001b[33m.\u001b[39mlength\u001b[33m;\u001b[39m i\u001b[33m++\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 337 |\u001b[39m     {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 338 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[36mnew\u001b[39m \u001b[33mRegExp\u001b[39m(\u001b[32m\"^\"\u001b[39m \u001b[33m+\u001b[39m tags[i] \u001b[33m+\u001b[39m \u001b[32m\"$\"\u001b[39m\u001b[33m,\u001b[39m \u001b[32m\"i\"\u001b[39m))\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 339 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 340 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 341 |\u001b[39m\u001b[0m\n\n\u001b[2m    at c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaTeste\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts:338:68\u001b[22m"
+                      "message": "Error: page.click: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- waiting for locator('li:has-text(\"XXX\")')\u001b[22m\n\n\n\u001b[0m \u001b[90m 555 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 556 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 557 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m`li:has-text(\"XXX\")`\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 558 |\u001b[39m     \u001b[0m\n\u001b[0m \u001b[90m 559 |\u001b[39m     \u001b[36mconst\u001b[39m va2 \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.fa-share'\u001b[39m)\u001b[33m.\u001b[39mnth(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 560 |\u001b[39m     \u001b[36mconst\u001b[39m vatextoHandle2 \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m va2\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\u001b[0m\n\n\u001b[2m    at c:\\Users\\DiogoCarvalho\\OneDrive - KAIZEN TECH, S.A\\Ambiente de Trabalho\\CriarMaquinaAutomatica\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts:557:16\u001b[22m"
                     }
                   ],
                   "stdout": [
                     {
-                      "text": "[\n  {\n    Site: \u001b[32m'Ambiente'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'ProtocoloAutomacao'\u001b[39m,\n    \u001b[32m'Excel AUT'\u001b[39m: \u001b[32m'C:\\\\Users\\\\LeandroMonteiro\\\\Desktop\\\\disneyland.xlsx'\u001b[39m,\n    \u001b[32m'Nome da Área da Máquina'\u001b[39m: \u001b[32m'Moagem'\u001b[39m,\n    \u001b[32m'Nome Máquina'\u001b[39m: \u001b[32m'CHK_Colagem_Sys_ColagA07'\u001b[39m,\n    \u001b[32m'Número Máquina'\u001b[39m: \u001b[32m'07'\u001b[39m,\n    Tipo: \u001b[32m'Discrete System'\u001b[39m,\n    Template: \u001b[32m'CHK_Colag.ColagA07'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'CHK'\u001b[39m,\n    Location: \u001b[32m'CHK_L_Champcork'\u001b[39m,\n    \u001b[32m'Nome Location'\u001b[39m: \u001b[32m'CHK_L_ColagA07'\u001b[39m,\n    \u001b[32m'Ord.ProduzItemsDefinitionID'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.TaxaProducaoTeorica'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Evento.EstadoMaquina'\u001b[39m: \u001b[33m1\u001b[39m\n  },\n  {\n    Site: \u001b[32m'MCS_TST'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Protocolo CHK'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'Colagem'\u001b[39m,\n    Location: \u001b[32m'CHK_L_30,5'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m2\u001b[39m\n  },\n  {\n    Site: \u001b[32m'Site'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_PARAR_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'ColagA07'\u001b[39m,\n    Location: \u001b[32m'CHK_L_Colagem'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m3\u001b[39m\n  },\n  {\n    Site: \u001b[32m'mcs'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Não'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m4\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m5\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m6\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m7\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m8\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m9\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m10\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE'\u001b[39m\n  },\n  { \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m }\n]\n"
+                      "text": "[\n  {\n    Site: \u001b[32m'Ambiente'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'ProtocoloAutomacao'\u001b[39m,\n    \u001b[32m'Excel AUT'\u001b[39m: \u001b[32m'C:\\\\Users\\\\DiogoCarvalho\\\\Downloads\\\\Tags (78).xlsx'\u001b[39m,\n    \u001b[32m'Nome da Área da Máquina'\u001b[39m: \u001b[32m'Filtroprensagem'\u001b[39m,\n    \u001b[32m'Nome Máquina'\u001b[39m: \u001b[32m'MCS_Sys_Filtroprensagem_Filtroprensagem02'\u001b[39m,\n    \u001b[32m'Número Máquina'\u001b[39m: \u001b[32m'02'\u001b[39m,\n    Tipo: \u001b[32m'Discrete System'\u001b[39m,\n    Template: \u001b[32m'MCS.Filtroprensagem.Filtroprensagem02'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'MCS'\u001b[39m,\n    Location: \u001b[32m'AQS_L_MotaPastas'\u001b[39m,\n    \u001b[32m'Nome Location'\u001b[39m: \u001b[32m'MCS_L_Vagos_MaqFiltroPren02'\u001b[39m,\n    \u001b[32m'Ord.ProduzItemsDefinitionID'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.ArmazemDestinoProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.ContentorTipoDestinoProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Prod.TaxaProducaoTeorica'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m1\u001b[39m,\n    \u001b[32m'Evento.EstadoMaquina'\u001b[39m: \u001b[33m1\u001b[39m\n  },\n  {\n    Site: \u001b[32m'MCS_TST'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Protocolo CHK'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'Filtroprensagem'\u001b[39m,\n    Location: \u001b[32m'MCS_L_Vagos'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m2\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m2\u001b[39m\n  },\n  {\n    Site: \u001b[32m'Site'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_PARAR_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'Filtroprensagem02'\u001b[39m,\n    Location: \u001b[32m'MCS_L_Vagos_Filtroprensagem'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m3\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m3\u001b[39m\n  },\n  {\n    Site: \u001b[32m'mcs'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Não'\u001b[39m,\n    Location: \u001b[32m'MCS_L_Vagos_MaqFiltroprensagem'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m4\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m4\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m5\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m5\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Não'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m6\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m6\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m7\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m7\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Não'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m8\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m8\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m9\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m9\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Não'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m10\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m10\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m11\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m11\u001b[39m\n  },\n  {\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Não'\u001b[39m,\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m12\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m12\u001b[39m\n  },\n  {\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m13\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m13\u001b[39m\n  },\n  {\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m14\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m14\u001b[39m\n  },\n  {\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m15\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m15\u001b[39m\n  },\n  {\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m16\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m16\u001b[39m\n  },\n  {\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m17\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m17\u001b[39m\n  },\n  {\n    \u001b[32m'Cons.ArmazemOrigemProduto'\u001b[39m: \u001b[33m18\u001b[39m,\n    \u001b[32m'Cons.ContentorOrigemProduto'\u001b[39m: \u001b[33m18\u001b[39m\n  }\n]\n"
                     },
                     {
                       "text": "MCS_TST\n"
@@ -119,25 +119,25 @@
                       "text": "mcs\n"
                     },
                     {
-                      "text": "C:\\Users\\LeandroMonteiro\\Desktop\\disneyland.xlsx\n"
+                      "text": "C:\\Users\\DiogoCarvalho\\Downloads\\Tags (78).xlsx\n"
                     },
                     {
-                      "text": "Moagem\n"
+                      "text": "Filtroprensagem\n"
                     },
                     {
-                      "text": "CHK_Colagem_Sys_ColagA07\n"
+                      "text": "MCS_Sys_Filtroprensagem_Filtroprensagem02\n"
                     },
                     {
-                      "text": "07\n"
+                      "text": "02\n"
                     },
                     {
                       "text": "Discrete System\n"
                     },
                     {
-                      "text": "CHK_Colag.ColagA07\n"
+                      "text": "MCS.Filtroprensagem.Filtroprensagem02\n"
                     },
                     {
-                      "text": "CHK_L_ColagA07\n"
+                      "text": "MCS_L_Vagos_MaqFiltroPren02\n"
                     },
                     {
                       "text": "\u001b[33m1\u001b[39m\n"
@@ -152,28 +152,28 @@
                       "text": "-------------------------------\n"
                     },
                     {
-                      "text": "[ \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m, \u001b[33m5\u001b[39m, \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m ]\n"
+                      "text": "[\n  \u001b[33m1\u001b[39m,         \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m\n]\n"
                     },
                     {
-                      "text": "[ \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m, \u001b[33m5\u001b[39m, \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m ]\n"
+                      "text": "[\n  \u001b[33m1\u001b[39m,         \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m,\n  \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m\n]\n"
                     },
                     {
-                      "text": "[ \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m, \u001b[33m5\u001b[39m, \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m ]\n"
+                      "text": "[\n   \u001b[33m1\u001b[39m,  \u001b[33m2\u001b[39m,  \u001b[33m3\u001b[39m,  \u001b[33m4\u001b[39m,  \u001b[33m5\u001b[39m,  \u001b[33m6\u001b[39m,  \u001b[33m7\u001b[39m,\n   \u001b[33m8\u001b[39m,  \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[33m11\u001b[39m, \u001b[33m12\u001b[39m, \u001b[33m13\u001b[39m, \u001b[33m14\u001b[39m,\n  \u001b[33m15\u001b[39m, \u001b[33m16\u001b[39m, \u001b[33m17\u001b[39m, \u001b[33m18\u001b[39m\n]\n"
                     },
                     {
-                      "text": "[ \u001b[33m1\u001b[39m, \u001b[33m2\u001b[39m, \u001b[33m3\u001b[39m, \u001b[33m4\u001b[39m, \u001b[33m5\u001b[39m, \u001b[33m6\u001b[39m, \u001b[33m7\u001b[39m, \u001b[33m8\u001b[39m, \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[90mundefined\u001b[39m, \u001b[90mundefined\u001b[39m ]\n"
-                    },
-                    {
-                      "text": "-------------------------------\n"
-                    },
-                    {
-                      "text": "[ \u001b[32m'CHK'\u001b[39m, \u001b[32m'Colagem'\u001b[39m, \u001b[32m'ColagA07'\u001b[39m ]\n"
+                      "text": "[\n   \u001b[33m1\u001b[39m,  \u001b[33m2\u001b[39m,  \u001b[33m3\u001b[39m,  \u001b[33m4\u001b[39m,  \u001b[33m5\u001b[39m,  \u001b[33m6\u001b[39m,  \u001b[33m7\u001b[39m,\n   \u001b[33m8\u001b[39m,  \u001b[33m9\u001b[39m, \u001b[33m10\u001b[39m, \u001b[33m11\u001b[39m, \u001b[33m12\u001b[39m, \u001b[33m13\u001b[39m, \u001b[33m14\u001b[39m,\n  \u001b[33m15\u001b[39m, \u001b[33m16\u001b[39m, \u001b[33m17\u001b[39m, \u001b[33m18\u001b[39m\n]\n"
                     },
                     {
                       "text": "-------------------------------\n"
                     },
                     {
-                      "text": "[ \u001b[32m'CHK_L_Champcork'\u001b[39m, \u001b[32m'CHK_L_30,5'\u001b[39m, \u001b[32m'CHK_L_Colagem'\u001b[39m ]\n"
+                      "text": "[ \u001b[32m'MCS'\u001b[39m, \u001b[32m'Filtroprensagem'\u001b[39m, \u001b[32m'Filtroprensagem02'\u001b[39m ]\n"
+                    },
+                    {
+                      "text": "-------------------------------\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[32m'AQS_L_MotaPastas'\u001b[39m,\n  \u001b[32m'MCS_L_Vagos'\u001b[39m,\n  \u001b[32m'MCS_L_Vagos_Filtroprensagem'\u001b[39m,\n  \u001b[32m'MCS_L_Vagos_MaqFiltroprensagem'\u001b[39m\n]\n"
                     },
                     {
                       "text": "-------------------------------\n"
@@ -185,26 +185,26 @@
                       "text": "Não\n"
                     },
                     {
-                      "text": "Sim\n"
+                      "text": "Não\n"
                     },
                     {
-                      "text": "Sim\n"
+                      "text": "Não\n"
                     },
                     {
-                      "text": "Sim\n"
+                      "text": "Não\n"
                     },
                     {
-                      "text": "Sim\n"
+                      "text": "Não\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-03-20T12:45:31.816Z",
+                  "startTime": "2024-03-20T15:37:36.685Z",
                   "attachments": [],
                   "errorLocation": {
-                    "file": "c:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaTeste\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts",
-                    "column": 68,
-                    "line": 338
+                    "file": "c:\\Users\\DiogoCarvalho\\OneDrive - KAIZEN TECH, S.A\\Ambiente de Trabalho\\CriarMaquinaAutomatica\\CriarMaquina\\tests\\scripts\\Discreta.spec.ts",
+                    "column": 16,
+                    "line": 557
                   }
                 }
               ],
@@ -221,8 +221,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-03-20T12:45:28.908Z",
-    "duration": 63687.121,
+    "startTime": "2024-03-20T15:37:35.384Z",
+    "duration": 252119.063,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,

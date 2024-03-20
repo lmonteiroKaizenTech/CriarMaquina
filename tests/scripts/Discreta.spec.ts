@@ -30,7 +30,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     }
     
     // Exemplo de uso
-    const dadosExcel = lerArquivoExcel('C:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaFilho.xlsx');
+    const dadosExcel = lerArquivoExcel('C:\\Users\\DiogoCarvalho\\OneDrive - KAIZEN TECH, S.A\\Ambiente de Trabalho\\CriarMaquinaFilho.xlsx');
     console.log(dadosExcel);
 
     // ------------------------------Recolher dados (Não tags)------------------------------
@@ -333,16 +333,34 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     //Criar Tags restantes(Script e Compare)
 
-    for (var i = 0; i < tags.length; i++)
+    if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
     {
-        await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
-        await page.waitForTimeout(3000);
+        for (var i = 0; i < tags.length; i++)
+        {
+           
+            if (i == 0)
+            {
+                const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
+                const vatextoHandle1 = await va1.first();
+                await vatextoHandle1.click();
+            }
+            else await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+ 
+            await page.waitForTimeout(3000);
+        }
+    }
+    else
+    {
+        for (var i = 0; i < tags.length; i++)
+        {
+            await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+            await page.waitForTimeout(3000);
+        }
     }
 
     await page.waitForTimeout(3000);
 
-    const elemento2 = await page.$(`[data-nodeid='218']`);
-    if (elemento2) elemento2.click();
+    await page.click(`li:has-text("Evento")`);
 
     await page.waitForTimeout(3000);
 
@@ -408,16 +426,34 @@ test('CriarMinhaMáquina', async ({ page }) => {
     //await page.click('ul .active');
     //await page.waitForTimeout(3000);
 
-    for (var i = 0; i < tags.length; i++)
+    if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
     {
-        await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
-        await page.waitForTimeout(3000);
+        for (var i = 0; i < tags.length; i++)
+        {
+           
+            if (i == 0)
+            {
+                const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
+                const vatextoHandle1 = await va1.first();
+                await vatextoHandle1.click();
+            }
+            else await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+ 
+            await page.waitForTimeout(3000);
+        }
+    }
+    else
+    {
+        for (var i = 0; i < tags.length; i++)
+        {
+            await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+            await page.waitForTimeout(3000);
+        }
     }
 
     await page.waitForTimeout(3000);
 
-    const elemento3 = await page.$(`[data-nodeid='218']`);
-    if (elemento3) elemento3.click();
+    await page.click(`li:has-text("Evento")`);
 
     await page.waitForTimeout(3000);
 
