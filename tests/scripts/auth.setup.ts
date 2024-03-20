@@ -10,8 +10,6 @@
 //   await page.getByLabel('Password').fill('12345'); // password
 //   await page.getByRole('button', { name: 'Sign In' }).click();
 
-//   await page.waitForURL('http://ktmesapp04/TS/pages/root/config/products/materials/');
-
 //   await page.context().storageState({ path: authFile });
 // });
 

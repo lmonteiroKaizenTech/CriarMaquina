@@ -67,8 +67,8 @@
   },
   "suites": [
     {
-      "title": "CriarAreaPai.spec.ts",
-      "file": "CriarAreaPai.spec.ts",
+      "title": "kpi.spec.ts",
+      "file": "kpi.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
@@ -87,7 +87,7 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 266866,
+                  "duration": 76771,
                   "errors": [],
                   "stdout": [
                     {
@@ -97,7 +97,7 @@
                       "text": "home\n"
                     },
                     {
-                      "text": "teste\n"
+                      "text": "Sys_teste\n"
                     },
                     {
                       "text": "teste\n"
@@ -118,7 +118,7 @@
                       "text": "[\n  \u001b[32m'CP_LimPercentagemInferior'\u001b[39m,\n  \u001b[32m'teste'\u001b[39m,\n  \u001b[32m'CP_LimPercentagemSuperior'\u001b[39m,\n  \u001b[1mnull\u001b[22m,\n  \u001b[32m'CP_IndEsc'\u001b[39m,\n  \u001b[1mnull\u001b[22m,\n  \u001b[32m'CP_LimQtd'\u001b[39m,\n  \u001b[1mnull\u001b[22m,\n  \u001b[32m'CP_LimTempo'\u001b[39m,\n  \u001b[32m'teste'\u001b[39m\n]\n"
                     },
                     {
-                      "text": "[\n  {\n    Tipo: \u001b[32m'Template Discrete System'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[32m'CHK_Teste.TesteXX'\u001b[39m,\n    Location: \u001b[32m'CHK_L_Champcork'\u001b[39m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[32m'LocationTeste'\u001b[39m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[32m'Topejamento'\u001b[39m,\n    General: \u001b[32m'Name'\u001b[39m,\n    Advanced: \u001b[32m'Script Class Name'\u001b[39m,\n    Maquina: \u001b[32m'NumeroDaMaquina'\u001b[39m,\n    Notes: \u001b[32m'Alternate Name'\u001b[39m\n  },\n  {\n    Tipo: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[32m'CHK_L_30,5'\u001b[39m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'Teste'\u001b[39m,\n    Advanced: \u001b[32m'Teste'\u001b[39m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m\n  },\n  {\n    Tipo: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[32m'CHK_L_Topejamento'\u001b[39m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'Schedule'\u001b[39m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[32m'ProtocoloAutomacao'\u001b[39m,\n    Notes: \u001b[1mnull\u001b[22m\n  },\n  {\n    Tipo: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'CHK_Geral'\u001b[39m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m\n  }\n]\n"
+                      "text": "[\n  {\n    Tipo: \u001b[32m'Template Discrete System'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[32m'CHK_Teste.TesteXX'\u001b[39m,\n    Location: \u001b[32m'CHK_L_Champcork'\u001b[39m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[32m'LocationTeste'\u001b[39m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[32m'Topejamento'\u001b[39m,\n    General: \u001b[32m'Name'\u001b[39m,\n    Advanced: \u001b[32m'Script Class Name'\u001b[39m,\n    Maquina: \u001b[32m'NumeroDaMaquina'\u001b[39m,\n    Notes: \u001b[32m'Alternate Name'\u001b[39m,\n    \u001b[32m\"KPI's\"\u001b[39m: \u001b[32m'Rejeitados'\u001b[39m\n  },\n  {\n    Tipo: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[32m'CHK_L_30,5'\u001b[39m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'TesteXXX'\u001b[39m,\n    Advanced: \u001b[32m'Teste'\u001b[39m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    \u001b[32m\"KPI's\"\u001b[39m: \u001b[32m'Sim'\u001b[39m\n  },\n  {\n    Tipo: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[32m'CHK_L_Topejamento'\u001b[39m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'Schedule'\u001b[39m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[32m'ProtocoloAutomacao'\u001b[39m,\n    Notes: \u001b[1mnull\u001b[22m,\n    \u001b[32m\"KPI's\"\u001b[39m: \u001b[1mnull\u001b[22m\n  },\n  {\n    Tipo: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'CHK_Geral'\u001b[39m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    \u001b[32m\"KPI's\"\u001b[39m: \u001b[1mnull\u001b[22m\n  }\n]\n"
                     },
                     {
                       "text": "Template Discrete System\n"
@@ -139,20 +139,20 @@
                       "text": "[ \u001b[32m'CHK_L_Champcork'\u001b[39m, \u001b[32m'CHK_L_30,5'\u001b[39m, \u001b[32m'CHK_L_Topejamento'\u001b[39m ]\n"
                     },
                     {
-                      "text": "-----------------Teste-----------------\n"
+                      "text": "-----------------TesteXXX-----------------\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-03-18T23:01:11.908Z",
+                  "startTime": "2024-03-20T10:39:58.828Z",
                   "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "002126856880947bfb43-337f0c44ab07d3e8d3b6",
-          "file": "CriarAreaPai.spec.ts",
+          "id": "895d4391612928dae998-524a29555c975118df27",
+          "file": "kpi.spec.ts",
           "line": 14,
           "column": 5
         }
@@ -161,8 +161,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-03-18T23:01:09.577Z",
-    "duration": 269774.751,
+    "startTime": "2024-03-20T10:39:57.537Z",
+    "duration": 78567.495,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

@@ -308,10 +308,8 @@ test('CriarMinhaMáquina', async ({ page }) => {
     {
         await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
         await page.getByLabel('Password').click();
-        await page.getByLabel('Password').fill('12345'); // password
+        await page.getByLabel('Password').fill('Lof25912'); // password
         await page.getByRole('button', { name: 'Sign In' }).click();
-        
-        await page.waitForURL('http://' + ambiente_final + '/TS/pages/root/config/products/materials/');
     }
 
     // ------------------------------Começar Criação de Máquina de Forma Automática------------------------------
@@ -342,7 +340,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     await page.waitForTimeout(3000);
 
-    const elemento2 = await page.$(`[data-nodeid='218']`);
+    const elemento2 = await page.$(`[data-nodeid='216']`);
     if (elemento2) elemento2.click();
 
     await page.waitForTimeout(3000);
@@ -417,7 +415,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     await page.waitForTimeout(3000);
 
-    const elemento3 = await page.$(`[data-nodeid='218']`);
+    const elemento3 = await page.$(`[data-nodeid='216']`);
     if (elemento3) elemento3.click();
 
     await page.waitForTimeout(3000);
@@ -434,7 +432,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     const primeiro = await page.getByTitle('Constant').first();
     if (primeiro) primeiro.click();
     await page.waitForTimeout(3000);
-    const primeiro_segundo = await page.locator('.glyphicon-tag').first();
+    const primeiro_segundo = await page.locator('.bi-tag-fill').first();
     if (primeiro_segundo) primeiro_segundo.click();
     await page.waitForTimeout(3000);
     await page.fill('#contentPage_Picker_LeftTagID_Name_TextBox','Global.HeartBeat');
@@ -449,7 +447,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     const vatextoHandle5 = await va7.first();
     await vatextoHandle5.click();
     await page.waitForTimeout(3000);
-    const va8 = await page.locator('.glyphicon-tag').nth(1);
+    const va8 = await page.locator('.bi-tag-fill').nth(1);
     const vatextoHandle6 = await va8.first();
     await vatextoHandle6.click();
     await page.fill('#contentPage_Picker_RightTagID_Name_TextBox',template + '.Evento.HeartBeatMaquina');
@@ -513,7 +511,9 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     // ------------------------------------------------
 
-    await page.getByText(/^Systems$/i).click();
+    const clique = await page.locator(`li:has-text("Systems")`).first();
+    if (clique) clique.click();
+
     await page.click('#contentPage_slice1_TreeList_Tree_TreeView');
     await page.waitForTimeout(3000);
     await page.click(`li:has-text("${maquina}")`);
