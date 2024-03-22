@@ -308,8 +308,9 @@ test('CriarMinhaMáquina', async ({ page }) => {
     {
         await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
         await page.getByLabel('Password').click();
-        await page.getByLabel('Password').fill('Lof25912'); // password
+        await page.getByLabel('Password').fill('12345'); // password
         await page.getByRole('button', { name: 'Sign In' }).click();
+
     }
 
     // ------------------------------Começar Criação de Máquina de Forma Automática------------------------------
@@ -332,16 +333,34 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     //Criar Tags restantes(Script e Compare)
 
-    for (var i = 0; i < tags.length; i++)
-    {
-        await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
-        await page.waitForTimeout(3000);
+    if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
+        {
+            for (var i = 0; i < tags.length; i++)
+            {
+            
+                if (i == 0)
+                {
+                    const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
+                    const vatextoHandle1 = await va1.first();
+                    await vatextoHandle1.click();
+                }
+                else await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+    
+                await page.waitForTimeout(3000);
+            }
+        }
+        else
+        {
+        for (var i = 0; i < tags.length; i++)
+        {
+            await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+            await page.waitForTimeout(3000);
+        }
     }
 
     await page.waitForTimeout(3000);
 
-    const elemento2 = await page.$(`[data-nodeid='216']`);
-    if (elemento2) elemento2.click();
+    await page.click(`li:has-text("Evento")`);
 
     await page.waitForTimeout(3000);
 
@@ -407,16 +426,34 @@ test('CriarMinhaMáquina', async ({ page }) => {
     //await page.click('ul .active');
     //await page.waitForTimeout(3000);
 
+if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
+    {
+        for (var i = 0; i < tags.length; i++)
+        {
+           
+            if (i == 0)
+            {
+                const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
+                const vatextoHandle1 = await va1.first();
+                await vatextoHandle1.click();
+            }
+            else await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+ 
+            await page.waitForTimeout(3000);
+        }
+    }
+    else
+    {
     for (var i = 0; i < tags.length; i++)
     {
         await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
         await page.waitForTimeout(3000);
     }
+}
 
     await page.waitForTimeout(3000);
 
-    const elemento3 = await page.$(`[data-nodeid='216']`);
-    if (elemento3) elemento3.click();
+    await page.click(`li:has-text("Evento")`);
 
     await page.waitForTimeout(3000);
 
@@ -486,7 +523,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
     await page.selectOption('#tseditLocationTypeID','LT_Maquinas');
     await page.waitForTimeout(2000);
     await page.click('#contentPage_Save_Button');
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
 
     //-----------------Criar Máquina------------------
 

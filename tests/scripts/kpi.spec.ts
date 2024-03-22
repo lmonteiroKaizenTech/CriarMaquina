@@ -258,10 +258,10 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     console.log('-------------------------------');
     console.log(location);
 
-    let name, schedule, script, numero_maquina, protocolo_automacao, alternate_name, KPI;
+    let name, schedule, script, numero_maquina, protocolo_automacao, alternate_name, rejeitados, consumos_automaticos, capture_scheme;
 
     if (dadosExcel2) {
-        for (var i = 0; i < 4; i++)
+        for (var i = 0; i < 6; i++)
         {
             // Por exemplo, para armazenar os valores da segunda linha do Excel (índice 1)
             const segundaLinha: LinhaExcel = dadosExcel2[i] as LinhaExcel;
@@ -272,12 +272,15 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
                     script = segundaLinha['Advanced'] as string;
                     numero_maquina = segundaLinha['Maquina'] as string;
                     alternate_name = segundaLinha['Notes'] as string;
-                    KPI = segundaLinha['KPI'] as string;
+                    rejeitados = segundaLinha['KPI'] as string;
                     break;
                 case 3:
                     schedule = segundaLinha['General'] as string;
                     protocolo_automacao = segundaLinha['Maquina'] as string;
+                    consumos_automaticos = segundaLinha['KPI'] as string;
                     break;
+                case 5:
+                    capture_scheme = segundaLinha['KPI'] as string;
                 default:
                     break;
             }
@@ -286,6 +289,63 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
         console.log("Não foi possível ler os dados do arquivo Excel.");
     }
     console.log('-----------------' + name + '-----------------');
+
+    var linha5 = 1, soma = 0;
+    let GroupName: any[] = [];
+
+    while (1 < 2)
+    {
+        const segundaLinha: LinhaExcel = dadosExcel2[linha5] as LinhaExcel; 
+        const prov = segundaLinha['Event Definition (Group)'];
+        soma++;
+        if (prov) GroupName.push(segundaLinha['Event Definition (Group)'] as string);
+        else break;
+        linha5++;
+    }
+    console.log(GroupName);
+
+    let EventName: any[] = [], EventDefinitionType: any[] = [], Priority: any[] = [], TriggerwhenEquals: any[] = [], OEEEventType: any[] = [], ReEvaluateSystemEventonStart: any[] = [], ReEvaluateSystemEventonEnd: any[] = [], ShowForAcknowledge: any[] = [], MTBFType: any[] = [], Duration: any[] = [], IsolationType: any[] = [], CP_EventDefinitionKey_ForMTBFTypeFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeNONFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeExcluded: any[] = [], CP_EventDefinitionIDLigada: any[] = [], CP_TagEventoCodigoAutomacao: any[] = [], CP_LoockupSetKeyCategoriaEventosAuto: any[] = [];
+
+    for (var i = 1; i < soma; i++)
+    {
+        const segundaLinha: LinhaExcel = dadosExcel2[i] as LinhaExcel;
+        EventName.push(segundaLinha['Event Definition (Event)'] as string);
+        EventDefinitionType.push(segundaLinha['1'] as string);
+        Priority.push(segundaLinha['2'] as string);
+        TriggerwhenEquals.push(segundaLinha['3'] as string);
+        OEEEventType.push(segundaLinha['4'] as string);
+        ReEvaluateSystemEventonStart.push(segundaLinha['5'] as string);
+        ReEvaluateSystemEventonEnd.push(segundaLinha['6'] as string);
+        ShowForAcknowledge.push(segundaLinha['7'] as string);
+        MTBFType.push(segundaLinha['8'] as string);
+        Duration.push(segundaLinha['9'] as string);
+        IsolationType.push(segundaLinha['10'] as string);
+        CP_EventDefinitionKey_ForMTBFTypeFailure.push(segundaLinha['11'] as string);
+        CP_EventDefinitionKey_ForMTBFTypeNONFailure.push(segundaLinha['12'] as string);
+        CP_EventDefinitionKey_ForMTBFTypeExcluded.push(segundaLinha['13'] as string);
+        CP_EventDefinitionIDLigada.push(segundaLinha['14'] as string);
+        CP_TagEventoCodigoAutomacao.push(segundaLinha['15'] as string);
+        CP_LoockupSetKeyCategoriaEventosAuto.push(segundaLinha['16'] as string);
+    }
+    console.log(EventName);
+
+    // ---------------Gerar Key Event Definition---------------
+
+    await page.goto('http://ktmesapp01/TS/pages/root/dev/osi_teste/pd0000002170/');
+
+    await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
+    await page.getByLabel('Password').click();
+    await page.getByLabel('Password').fill('12345'); // password
+    await page.getByRole('button', { name: 'Sign In' }).click();
+
+    await page.click('#contentPage_ctl15');
+    await page.waitForTimeout(3000);
+    await page.click('.btn-item-key-btn_GerarKey');
+    await page.waitForTimeout(3000);
+    const keyEventDefinition = await page.locator('#contentPage_ctl04').textContent();
+    let final_keyEventDefinition
+    if (keyEventDefinition) final_keyEventDefinition = keyEventDefinition.trim();
+    await page.waitForTimeout(3000);
 
     // ---------------Login Site Principal---------------
 
@@ -354,7 +414,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     var contagem;
     try {
         await sql.connect(config)
-        record1 = await sql.query`select count (id) - 1 as Contar from tTag where [Name] like '%${templatetags}.Prod.Contador%'` // select distinct
+        record1 = await sql.query`select count (id) - 2 as Contar from tTag where [Name] like '%' + ${templatetags.toString()} + '.Prod.ContadorProduto%'` // select distinct
         contagem = record1.recordset[0].Contar;
     
     } catch (e) {
@@ -363,26 +423,28 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
 
     await page.waitForTimeout(3000);
 
-    for (var i = 1; i < contagem.length + 1; i++)
+    for (var i = 1; i < contagem + 1; i++)
     {
-        if (i == 2 && KPI == 'Sim')
+        if (i == 2 && rejeitados == 'Sim')
         {
             await page.click(`a:text("  Bad")`);
             await page.waitForTimeout(3000);
             await page.click(`a:has-text("New")`);
             await page.waitForTimeout(3000);
-            if (i <= 10) await page.fill('#tseditName', 'Produto0' + i);
-            else await page.fill('#tseditName', 'Produto' + i);
+            await page.fill('#tseditName', 'Produto0' + i);
             await page.waitForTimeout(3000);
             const primeiro = await page.getByTitle('Constant').first();
             if (primeiro) primeiro.click();
             await page.waitForTimeout(3000);
-            const primeiro_segundo = await page.locator('.glyphicon-tag').first();
+            const primeiro_segundo = await page.locator('.bi-tag-fill').first();
             if (primeiro_segundo) primeiro_segundo.click();
             await page.waitForTimeout(3000);
-            await page.fill('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Name_TextBox', templatetags + '.Prod.Contador0' + i);
+            await page.fill('#contentPage_Picker_CounterTagID_Name_TextBox', templatetags + '.Prod.ContadorProduto0' + i);
             await page.waitForTimeout(3000);
-            await page.click('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Find_Button');
+            await page.click('#contentPage_Picker_CounterTagID_Find_Button');
+            await page.waitForTimeout(3000);
+            const clicarbutkpi = await page.locator(`button:has-text("Assign")`).first();
+            if (clicarbutkpi) clicarbutkpi.click();
             await page.waitForTimeout(3000);
             await page.fill('#tseditMaxPlusTagConstant_Constant','999999');
             await page.waitForTimeout(3000);
@@ -405,12 +467,16 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
             const primeiro = await page.getByTitle('Constant').first();
             if (primeiro) primeiro.click();
             await page.waitForTimeout(3000);
-            const primeiro_segundo = await page.locator('.glyphicon-tag').first();
+            const primeiro_segundo = await page.locator('.bi-tag-fill').first();
             if (primeiro_segundo) primeiro_segundo.click();
             await page.waitForTimeout(3000);
-            await page.fill('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Name_TextBox', templatetags + '.Prod.Contador0' + i);
+            if (i <= 10) await page.fill('#contentPage_Picker_CounterTagID_Name_TextBox', templatetags + '.Prod.ContadorProduto0' + i);
+            else await page.fill('#contentPage_Picker_CounterTagID_Name_TextBox', templatetags + '.Prod.ContadorProduto' + i);
             await page.waitForTimeout(3000);
-            await page.click('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Find_Button');
+            await page.click('#contentPage_Picker_CounterTagID_Find_Button');
+            await page.waitForTimeout(3000);
+            const clicarbutkpi = await page.locator(`button:has-text("Assign")`).first();
+            if (clicarbutkpi) clicarbutkpi.click();
             await page.waitForTimeout(3000);
             await page.fill('#tseditMaxPlusTagConstant_Constant','999999');
             await page.waitForTimeout(3000);
@@ -420,6 +486,159 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
             await page.waitForTimeout(3000);
             await page.click('#contentPage_Save_Button');
             await page.waitForTimeout(3000);
+        }
+    }
+
+    await page.waitForTimeout(3000);
+
+    // ---------Automáticos---------
+
+    if (consumos_automaticos == 'Sim')
+    {
+        var record2;
+        var contagem2;
+        try {
+            await sql.connect(config)
+            record2 = await sql.query`select count (id) - 2 as Contar from tTag where [Name] like '%' + ${templatetags.toString()} + '.Consumo.ContadorProduto%'` // select distinct
+            contagem2 = record2.recordset[0].Contar;
+        
+        } catch (e) {
+            console.log(e);
+        }
+
+        await page.waitForTimeout(3000);
+
+        for (var i = 1; i < contagem + 1; i++)
+        {
+            await page.click(`a:has-text("New")`);
+            await page.waitForTimeout(3000);
+            if (i <= 10) await page.fill('#tseditName', 'Produto0' + i);
+            else await page.fill('#tseditName', 'Produto' + i);
+            await page.waitForTimeout(3000);
+            const primeiro = await page.getByTitle('Constant').first();
+            if (primeiro) primeiro.click();
+            await page.waitForTimeout(3000);
+            const primeiro_segundo = await page.locator('.bi-tag-fill').first();
+            if (primeiro_segundo) primeiro_segundo.click();
+            await page.waitForTimeout(3000);
+            if (i <= 10) await page.fill('#contentPage_Picker_CounterTagID_Name_TextBox', templatetags + '.Cons.ContadorProduto0' + i);
+            else await page.fill('#contentPage_Picker_CounterTagID_Name_TextBox', templatetags + '.Cons.ContadorProduto' + i);
+            await page.waitForTimeout(3000);
+            await page.click('#contentPage_Picker_CounterTagID_Find_Button');
+            await page.waitForTimeout(3000);
+            const clicarbutkpi = await page.locator(`button:has-text("Assign")`).first();
+            if (clicarbutkpi) clicarbutkpi.click();
+            await page.waitForTimeout(3000);
+            await page.fill('#tseditMaxPlusTagConstant_Constant','999999');
+            await page.waitForTimeout(3000);
+            await page.click(`li:has-text("Advanced")`);
+            await page.waitForTimeout(3000);
+            await page.fill('#tseditRolloverTagConstant_Constant','999999');
+            await page.waitForTimeout(3000);
+            await page.click('#contentPage_Save_Button');
+            await page.waitForTimeout(3000);
+        }
+    }
+
+    await page.waitForTimeout(3000);
+
+    await page.click(`a:text("  Set KPI Capture Scheme")`);
+    await page.waitForTimeout(3000);
+    await page.selectOption('#contentPage_slice2_SchemeDropDownList', capture_scheme);
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_slice2_AssignButton');
+    await page.waitForTimeout(3000);
+    await page.click(`a:text("  KPI Capture Tags")`);
+    await page.waitForTimeout(3000);
+    const split = await page.getByTitle('Split').first();
+    if (split) await split.click();
+
+    await page.waitForTimeout(3000);
+
+    const va5 = await page.locator('.fa-edit').nth(1);
+    const vatextoHandle5 = await va5.first();
+    await vatextoHandle5.click();
+
+    await page.waitForTimeout(3000);
+
+    await page.click('#contentPage_tseditCaptureTagID_Picker');
+    await page.waitForTimeout(3000);
+    await page.fill('#contentPage_Picker_CaptureTagID_Name_TextBox',templatetags + '.Prod.Split');
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_Picker_CaptureTagID_Find_Button');
+    await page.waitForTimeout(3000);
+    const clicarbutkpi = await page.locator(`button:has-text("Assign")`).first();
+    if (clicarbutkpi) clicarbutkpi.click();
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_Save_Button');
+    await page.waitForTimeout(3000);
+    await page.click(`a:text("${name}")`);
+    await page.waitForTimeout(3000);
+    if (GroupName)
+    {
+        for (var i = 0; i < GroupName.length; i++)
+        {
+            await page.click(`a:text("  Event Definitions")`);
+            await page.waitForTimeout(3000);
+            await page.click(`a:text("  New Group")`);
+            await page.waitForTimeout(3000);
+            await page.fill('#tseditName', GroupName[i]);
+            await page.click('#contentPage_Save_Button');
+
+            await page.waitForTimeout(3000);
+
+            const va11 = await page.getByTitle(GroupName[i]).first();
+            const EventHandler11 = await va11.first();
+            await EventHandler11.click();
+            await page.waitForTimeout(5000);
+            const va10 = await page.locator(`a:text("  New")`).nth(1);
+            const EventHandler12 = await va10.first();
+            await EventHandler12.click();
+            await page.waitForTimeout(5000);
+            await page.fill('#tseditName',EventName[i]);
+            await page.waitForTimeout(3000);
+            if (EventDefinitionType[i]) await page.selectOption('#tseditEventDefinitionTypeID', EventDefinitionType[i]);
+            await page.waitForTimeout(3000);
+            await page.fill('#tseditKey', final_keyEventDefinition);
+            if (Priority[i]) await page.fill('#tseditPriority', Priority[i]);
+            if (TriggerwhenEquals[i]) await page.fill('#tseditTriggerWhenEquals', TriggerwhenEquals[i]);
+            await page.waitForTimeout(3000);
+            await page.click(`a:text("OEE")`);
+            await page.waitForTimeout(3000);
+            if (OEEEventType[i]) await page.selectOption('#tseditOeeEventType', OEEEventType[i]);
+            await page.waitForTimeout(3000);
+            await page.click(`a:text("Split")`);
+            await page.waitForTimeout(3000);
+            if (ReEvaluateSystemEventonStart[i]) await page.click('#tseditReEvaluateSystemEventOnStart');
+            if (ReEvaluateSystemEventonEnd[i]) await page.click('#tseditReEvaluateSystemEventOnEnd');
+            await page.waitForTimeout(3000);
+            await page.click(`a:text("Event")`);
+            await page.waitForTimeout(3000);
+            if (ShowForAcknowledge[i]) await page.selectOption('#tseditShowForAcknowledge', ShowForAcknowledge[i]);
+            await page.waitForTimeout(3000);
+            await page.click(`a:text("Advanced")`);
+            await page.waitForTimeout(3000);
+            if (MTBFType[i]) await page.selectOption('#tseditMtbfType', MTBFType[i]);
+            await page.waitForTimeout(3000);
+            if (Duration[i]) await page.fill('#tseditDurationSeconds', Duration[i]);
+            await page.waitForTimeout(3000);
+            if (IsolationType[i]) await page.selectOption('#tseditEventIsolationType', IsolationType[i]);
+            await page.waitForTimeout(3000);
+            await page.click(`a:text("Definições")`);
+            await page.waitForTimeout(3000);
+            if (CP_EventDefinitionKey_ForMTBFTypeFailure[i]) await page.fill('#tseditcp_CPS0000000039_CP0000000321', CP_EventDefinitionKey_ForMTBFTypeFailure[i]);
+            await page.waitForTimeout(3000);
+            if (CP_EventDefinitionKey_ForMTBFTypeNONFailure[i]) await page.fill('#tseditcp_CPS0000000039_CP0000000322', CP_EventDefinitionKey_ForMTBFTypeNONFailure[i]);
+            await page.waitForTimeout(3000);
+            if (CP_EventDefinitionKey_ForMTBFTypeExcluded[i]) await page.fill('#tseditcp_CPS0000000039_CP0000000323', CP_EventDefinitionKey_ForMTBFTypeExcluded[i]);
+            await page.waitForTimeout(3000);
+            if (CP_EventDefinitionIDLigada[i]) await page.fill('#tseditcp_CPS0000000039_CP0000000345', CP_EventDefinitionIDLigada[i]);
+            await page.waitForTimeout(3000);
+            if (CP_TagEventoCodigoAutomacao[i]) await page.fill('#tseditcp_CPS0000000039_CP0000000367', CP_TagEventoCodigoAutomacao[i]);
+            await page.waitForTimeout(3000);
+            if (CP_LoockupSetKeyCategoriaEventosAuto[i]) await page.fill('#tseditcp_CPS0000000039_CP0000000368', CP_LoockupSetKeyCategoriaEventosAuto[i]);
+            await page.waitForTimeout(3000);
+            await page.click('#contentPage_Save_Button');
         }
     }
 

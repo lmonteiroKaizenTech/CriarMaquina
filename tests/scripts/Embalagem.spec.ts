@@ -168,7 +168,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     while (1 < 2)
     {
-        const segundaLinha: LinhaExcel = dadosExcel[linha2] as LinhaExcel; 
+        const segundaLinha: LinhaExcel = dadosExcel[linha2] as LinhaExcel;
         const prov = segundaLinha['Caminho Tags'];
         if (prov) tags.push(segundaLinha['Caminho Tags'] as string);
         else break;
@@ -308,8 +308,9 @@ test('CriarMinhaMáquina', async ({ page }) => {
     {
         await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
         await page.getByLabel('Password').click();
-        await page.getByLabel('Password').fill('Lof25912'); // password
+        await page.getByLabel('Password').fill('12345'); // password
         await page.getByRole('button', { name: 'Sign In' }).click();
+
     }
 
     // ------------------------------Começar Criação de Máquina de Forma Automática------------------------------
@@ -332,16 +333,34 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     //Criar Tags restantes(Script e Compare)
 
+if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
+    {
+        for (var i = 0; i < tags.length; i++)
+        {
+           
+            if (i == 0)
+            {
+                const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
+                const vatextoHandle1 = await va1.first();
+                await vatextoHandle1.click();
+            }
+            else await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+ 
+            await page.waitForTimeout(3000);
+        }
+    }
+    else
+    {
     for (var i = 0; i < tags.length; i++)
     {
         await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
         await page.waitForTimeout(3000);
     }
+}
 
     await page.waitForTimeout(3000);
 
-    const elemento2 = await page.$(`[data-nodeid='216']`);
-    if (elemento2) elemento2.click();
+    await page.click(`li:has-text("Evento")`);
 
     await page.waitForTimeout(3000);
 
@@ -407,16 +426,34 @@ test('CriarMinhaMáquina', async ({ page }) => {
     //await page.click('ul .active');
     //await page.waitForTimeout(3000);
 
+if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
+    {
+        for (var i = 0; i < tags.length; i++)
+        {
+           
+            if (i == 0)
+            {
+                const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
+                const vatextoHandle1 = await va1.first();
+                await vatextoHandle1.click();
+            }
+            else await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+ 
+            await page.waitForTimeout(3000);
+        }
+    }
+    else
+    {
     for (var i = 0; i < tags.length; i++)
     {
         await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
         await page.waitForTimeout(3000);
     }
+}
 
     await page.waitForTimeout(3000);
 
-    const elemento3 = await page.$(`[data-nodeid='216']`);
-    if (elemento3) elemento3.click();
+    await page.click(`li:has-text("Evento")`);
 
     await page.waitForTimeout(3000);
 
@@ -511,7 +548,7 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     // ------------------------------------------------
 
-    const clique = await page.locator(`li:has-text("Systems")`).first();
+    const clique = await page.locator(`li:text("Systems")`).first();
     if (clique) clique.click();
 
     await page.click('#contentPage_slice1_TreeList_Tree_TreeView');
