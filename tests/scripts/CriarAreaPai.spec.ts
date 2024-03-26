@@ -634,25 +634,25 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
 
     // ---------------Gerar Key Event Definition---------------
 
-    await page.goto('http://ktmesapp01/TS/pages/root/dev/osi_teste/pd0000002170/');
+    // await page.goto('http://ktmesapp01/TS/pages/root/dev/osi_teste/pd0000002170/');
 
     // await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
     // await page.getByLabel('Password').click();
     // await page.getByLabel('Password').fill('12345'); // password
     // await page.getByRole('button', { name: 'Sign In' }).click();
 
-    await page.click('#contentPage_ctl15');
-    await page.waitForTimeout(3000);
-    await page.click('.btn-item-key-btn_GerarKey');
-    await page.waitForTimeout(3000);
-    const keyEventDefinition = await page.locator('#contentPage_ctl04').textContent();
-    let final_keyEventDefinition
-    if (keyEventDefinition) final_keyEventDefinition = keyEventDefinition.trim();
-    await page.waitForTimeout(3000);
+    // await page.click('#contentPage_ctl15');
+    // await page.waitForTimeout(3000);
+    // await page.click('.btn-item-key-btn_GerarKey');
+    // await page.waitForTimeout(3000);
+    // const keyEventDefinition = await page.locator('#contentPage_ctl04').textContent();
+    // let final_keyEventDefinition
+    // if (keyEventDefinition) final_keyEventDefinition = keyEventDefinition.trim();
+    // await page.waitForTimeout(3000);
 
     // ---------------Criar Location---------------
 
-    await page.goto('http://ktmesapp04/TS/pages/home/config/locations/');
+    await page.goto('http://ktmesapp04/TS/pages/' + site + '/config/locations/');
 
     await page.waitForTimeout(3000);
     for (var i = 0; i < location.length; i++)
@@ -673,7 +673,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     await page.click('#contentPage_Save_Button');
     await page.waitForTimeout(5000);
 
-    await page.goto('http://ktmesapp04/TS/pages/home/config/tags/');
+    await page.goto('http://ktmesapp04/TS/pages/' + site + '/config/tags/');
     await page.waitForTimeout(3000);
 
     await page.click(`li:has-text("Template")`);
@@ -852,7 +852,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     {
         if (i == 2 && rejeitados == 'Sim')
         {
-            await page.click(`a:text("  Bad")`);
+            await page.click(`a:has-text("  Bad")`);
             await page.waitForTimeout(3000);
             await page.click(`a:has-text("New")`);
             await page.waitForTimeout(3000);
@@ -1003,6 +1003,31 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     {
         for (var i = 0; i < GroupName.length; i++)
         {
+            await page.goto('http://ktmesapp01/TS/pages/root/dev/osi_teste/pd0000002170/');
+
+            // await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
+            // await page.getByLabel('Password').click();
+            // await page.getByLabel('Password').fill('12345'); // password
+            // await page.getByRole('button', { name: 'Sign In' }).click();
+        
+            await page.click('#contentPage_ctl15');
+            await page.waitForTimeout(3000);
+            await page.click('.btn-item-key-btn_GerarKey');
+            await page.waitForTimeout(3000);
+            const keyEventDefinition = await page.locator('#contentPage_ctl04').textContent();
+            let final_keyEventDefinition
+            if (keyEventDefinition) final_keyEventDefinition = keyEventDefinition.trim();
+            await page.waitForTimeout(3000);
+
+            await page.goto('http://ktmesapp04/TS/pages/home/config/systems/');
+            await page.waitForTimeout(3000);
+            for (var i = 0; i < CaminhoArea.length; i++) await page.click(`li:has-text("${CaminhoArea[i]}")`);
+            await page.waitForTimeout(3000);
+            await page.click(`li:text("${General}")`);
+            await page.waitForTimeout(3000);
+            await page.click(`div:text("${name}")`);
+            await page.waitForTimeout(3000);
+
             await page.click(`a:text("  Event Definitions")`);
             await page.waitForTimeout(3000);
             await page.click(`a:text("  New Group")`);
