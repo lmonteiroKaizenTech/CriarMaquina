@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { fail } from 'assert';
 import * as XLSX from 'xlsx';
+const { exec } = require('child_process');
 
 // Configurações de conexão
 const sql = require('mssql');
@@ -11,6 +12,32 @@ const config = require('../../../CRIARMAQUINA/tests/dbConnection/connection.js')
 let ambientes_nome: any[] = ['AC_PRD','AC_QLD','AC_TST','AFL_PRD','AFL_QLD','AFL_TST','ACF_PRD','ACF_QLD','ACF_TST','ACC_PRD','ACC_QLD','ACC_TST','DEV','AQS_PRD','AQS_TST','ARC_PRD','ARC_TST','ACO_PRD','ACO_TST','CLP_PRD','CLP_TST','DISNEYLAND','MCS_TST'];
 let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTARCMESAPP01','KTMESAPP11','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01','ktmesapp06'];
 
+let output, user = '';
+// Executar um comando PowerShell e capturar a saída
+exec('whoami', (error, stdout, stderr) => {
+    if (error) {
+        console.error(`Erro ao executar o comando: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.error(`Erro do PowerShell: ${stderr}`);
+        return;
+    }
+
+    // Faça o que quiser com a saída, como armazená-la em uma variável ou vetor
+    output = stdout.trim(); // Remove espaços em branco extras
+
+    if (output)
+    {
+        for (var i = 0; i < output.length; i++)
+        {
+            if (output[i] == '\\')
+            {
+                for (var j = 1; j < output.length - i; j++) user += output[i + j];
+            }
+        }
+    }
+});
 test('CriarAreaPai', async ({ page }) => {
 
     // Definindo o tipo de uma linha do Excel
@@ -49,7 +76,7 @@ test('CriarAreaPai', async ({ page }) => {
     }
     
     // Exemplo de uso
-    const dadosExcel = lerArquivoExcel('C:\\Users\\LeandroMonteiro\\Desktop\\CriarAreaMaquina.xlsx');
+    const dadosExcel = lerArquivoExcel('C:\\Users\\' + user + '\\Desktop\\CriarAreaMaquina.xlsx');
     //console.log(dadosExcel);
 
     // ------------------------------Recolher dados------------------------------
@@ -508,7 +535,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
 }
     
     // Exemplo de uso
-    const dadosExcel2 = lerArquivoExcel2('C:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaPai.xlsx');
+    const dadosExcel2 = lerArquivoExcel2('C:\\Users\\' + user + '\\Desktop\\CriarMaquinaPai.xlsx');
     console.log(dadosExcel2);
 
     let templatetags, locationname, area;
