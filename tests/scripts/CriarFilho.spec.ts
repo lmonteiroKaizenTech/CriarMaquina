@@ -381,6 +381,26 @@ test('CriarMinhaMáquina', async ({ page }) => {
     await page.waitForTimeout(2000);
     await page.click('#contentPage_Save_Button');
     await page.waitForTimeout(5000);
+    const tag = await page.getByTitle(template + '.Evento.FalhaComunicacoes').first();
+    if (tag) tag.click();
+    await page.waitForTimeout(3000);
+    await page.click('.fa-code');
+    await page.waitForTimeout(3000);
+    await page.click('.fa-cog');
+    await page.waitForTimeout(5000);
+    await page.selectOption('#InputEditorType','Text');
+    await page.waitForTimeout(3000);
+    await page.click('#Btns_Save');
+    await page.waitForTimeout(3000);
+    await page.fill('#contentPage_Editor_Code', 'if (Tags["' + template + '.Evento.EstadoMaquina"].Quality != 0) return 0; else return 1;');
+
+    await page.waitForTimeout(5000);
+
+    await page.click('.tsoperation-toolbar-saveandclose');
+    await page.waitForTimeout(5000);
+
+    await page.goto('http://' + ambiente_final + '/TS/pages/' + site + '/config/tags/');
+
     // const va6 = await page.getByTitle(template + '.Evento.FalhaComunicacoes').first();
     // if (va6) va6.click();
     // await page.waitForTimeout(3000);
@@ -548,10 +568,12 @@ if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambi
 
     // ------------------------------------------------
 
-    const clique = await page.locator(`li:text("Systems")`).first();
+    const clique = await page.locator(`li:has-text("Systems")`).first();
     if (clique) clique.click();
+
+    await page.waitForTimeout(3000);
     
-    await page.click('#contentPage_slice1_TreeList_Tree_TreeView');
+    await page.click(`li:has-text("  Expand All")`);
     await page.waitForTimeout(3000);
     await page.click(`li:has-text("${maquina}")`);
     await page.waitForTimeout(3000);

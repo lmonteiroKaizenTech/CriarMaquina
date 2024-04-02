@@ -731,7 +731,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     await page.waitForTimeout(3000);
     await page.fill('#tseditName', name);
     await page.waitForTimeout(3000);
-    await page.selectOption('#tseditSystemTypeID','SysT_MaquinaEmbalagem');
+    await page.selectOption('#tseditSystemTypeID','SysT_MaquinaTratamento');
     await page.waitForTimeout(3000);
     const clicar = await page.locator('#contentPage_tseditScheduleID_Picker').first();
     if (clicar) clicar.click();

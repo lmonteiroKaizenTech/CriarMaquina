@@ -511,7 +511,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     const dadosExcel2 = lerArquivoExcel2('C:\\Users\\LeandroMonteiro\\Desktop\\CriarMaquinaPai.xlsx');
     console.log(dadosExcel2);
 
-    let tipomaquina, templatetags, locationname, area;
+    let templatetags, locationname, area;
 
     // Verifica se os dados foram lidos corretamente
     if (dadosExcel2) {
@@ -519,11 +519,9 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
         const segundaLinha: LinhaExcel = dadosExcel2[0] as LinhaExcel;
 
         // Por exemplo, para acessar um valor específico de uma coluna, você pode usar a chave correspondente ao cabeçalho
-        tipomaquina = segundaLinha['Tipo'] as string;
         templatetags = segundaLinha['Template Tags'] as string;
         locationname = segundaLinha['Nome da Location'] as string;
         area = segundaLinha['Area da Maquina'] as string;
-        console.log(tipomaquina);
         console.log(templatetags);
         console.log(locationname);
         console.log(area);
@@ -652,7 +650,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
 
     // ---------------Criar Location---------------
 
-    await page.goto('http://ktmesapp04/TS/pages/' + site + '/config/locations/');
+    await page.goto('http://' + ambiente_final + '/TS/pages/' + site + '/config/locations/');
 
     await page.waitForTimeout(3000);
     for (var i = 0; i < location.length; i++)
@@ -673,7 +671,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     await page.click('#contentPage_Save_Button');
     await page.waitForTimeout(5000);
 
-    await page.goto('http://ktmesapp04/TS/pages/' + site + '/config/tags/');
+    await page.goto('http://' + ambiente_final + '/TS/pages/' + site + '/config/tags/');
     await page.waitForTimeout(3000);
 
     await page.click(`li:has-text("Template")`);
@@ -729,7 +727,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     await vatextoHandle2.click();
     //await page.getByTitle(tipomaquina).click();
     await page.waitForTimeout(3000);
-    await page.getByText(tipomaquina).click();
+    await page.getByText('Template Discrete System').click();
     await page.waitForTimeout(3000);
     await page.fill('#tseditName', name);
     await page.waitForTimeout(3000);
@@ -852,7 +850,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     {
         if (i == 2 && rejeitados == 'Sim')
         {
-            await page.click(`a:has-text("  Bad")`);
+            await page.click(`#MainContentUpdatePanel a:text("  Bad")`);
             await page.waitForTimeout(3000);
             await page.click(`a:has-text("New")`);
             await page.waitForTimeout(3000);
@@ -1019,9 +1017,9 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
             if (keyEventDefinition) final_keyEventDefinition = keyEventDefinition.trim();
             await page.waitForTimeout(3000);
 
-            await page.goto('http://ktmesapp04/TS/pages/home/config/systems/');
+            await page.goto('http://' + ambiente_final + '/TS/pages/' + site + '/config/systems/');
             await page.waitForTimeout(3000);
-            for (var i = 0; i < CaminhoArea.length; i++) await page.click(`li:has-text("${CaminhoArea[i]}")`);
+            for (var j = 0; j < CaminhoArea.length; j++) await page.click(`li:has-text("${CaminhoArea[j]}")`);
             await page.waitForTimeout(3000);
             await page.click(`li:text("${General}")`);
             await page.waitForTimeout(3000);
