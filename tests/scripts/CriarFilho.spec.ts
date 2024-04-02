@@ -8,7 +8,7 @@ const sql = require('mssql');
 const config = require('../../../CRIARMAQUINA/tests/dbConnection/connection.js');
 
 let ambientes_nome: any[] = ['AC_PRD','AC_QLD','AC_TST','AFL_PRD','AFL_QLD','AFL_TST','ACF_PRD','ACF_QLD','ACF_TST','ACC_PRD','ACC_QLD','ACC_TST','DEV','AQS_PRD','AQS_TST','ARC_PRD','ARC_TST','ACO_PRD','ACO_TST','CLP_PRD','CLP_TST','DISNEYLAND','MCS_TST'];
-let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTARCMESAPP01','KTMESAPP11','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01','ktmesapp06'];
+let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTARCMESAPP01','172.16.1.15','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01','ktmesapp06'];
 let output, user = '';
 // Executar um comando PowerShell e capturar a saída
 exec('whoami', (error, stdout, stderr) => {
@@ -359,29 +359,36 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     //Criar Tags restantes(Script e Compare)
 
-    if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
-        {
-            for (var i = 0; i < tags.length; i++)
-            {
+    // if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
+    //     {
+    //         for (var i = 0; i < tags.length; i++)
+    //         {
             
-                if (i == 0)
-                {
-                    const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
-                    const vatextoHandle1 = await va1.first();
-                    await vatextoHandle1.click();
-                }
-                else await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+    //             if (i == 0)
+    //             {
+    //                 const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
+    //                 const vatextoHandle1 = await va1.first();
+    //                 await vatextoHandle1.click();
+    //             }
+    //             else await page.locator('#contentPage_slice1_TreeList_Tree_TreeView').getByText(tags[i]);
     
-                await page.waitForTimeout(3000);
-            }
-        }
-        else
-        {
-        for (var i = 0; i < tags.length; i++)
-        {
-            await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
-            await page.waitForTimeout(3000);
-        }
+    //             await page.waitForTimeout(3000);
+    //         }
+    //     }
+    //     else
+    //     {
+    //     for (var i = 0; i < tags.length; i++)
+    //     {
+    //         await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+    //         await page.waitForTimeout(3000);
+    //     }
+    // }
+
+    for (var i = 0; i < tags.length; i++)
+    {
+
+        await page.locator('#contentPage_slice1_TreeList_Tree_TreeView').getByText(tags[i]).click();
+    
     }
 
     await page.waitForTimeout(3000);
@@ -472,30 +479,37 @@ test('CriarMinhaMáquina', async ({ page }) => {
     //await page.click('ul .active');
     //await page.waitForTimeout(3000);
 
-if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
-    {
-        for (var i = 0; i < tags.length; i++)
-        {
+// if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambiente != 'ACC_PRD' && ambiente != 'ACC_QLD' && ambiente != 'ACC_TST' && ambiente != 'ACF_PRD' && ambiente != 'ACF_QLD' && ambiente != 'ACF_TST' && ambiente != 'AFL_PRD' && ambiente != 'AFL_QLD' && ambiente != 'AFL_TST')
+//     {
+//         for (var i = 0; i < tags.length; i++)
+//         {
            
-            if (i == 0)
-            {
-                const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
-                const vatextoHandle1 = await va1.first();
-                await vatextoHandle1.click();
-            }
-            else await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+//             if (i == 0)
+//             {
+//                 const va1 = await page.getByText(new RegExp("^" + tags[i] + "$", "i")).nth(1);
+//                 const vatextoHandle1 = await va1.first();
+//                 await vatextoHandle1.click();
+//             }
+//             else await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
  
-            await page.waitForTimeout(3000);
-        }
-    }
-    else
-    {
+//             await page.waitForTimeout(3000);
+//         }
+//     }
+//     else
+//     {
+//     for (var i = 0; i < tags.length; i++)
+//     {
+//         await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
+//         await page.waitForTimeout(3000);
+//     }
+// }
+
     for (var i = 0; i < tags.length; i++)
     {
-        await page.getByText(new RegExp("^" + tags[i] + "$", "i")).click();
-        await page.waitForTimeout(3000);
+
+        await page.locator('#contentPage_slice1_TreeList_Tree_TreeView').getByText(tags[i]).click();
+
     }
-}
 
     await page.waitForTimeout(3000);
 
@@ -554,10 +568,16 @@ if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambi
 
     await page.click(`li:has-text("Locations")`);
     await page.waitForTimeout(3000);
-    for (var i = 0; i < tags.length; i++)
+    // for (var i = 0; i < tags.length; i++)
+    // {
+    //     await page.getByText(new RegExp("^" + location[i] + "$", "i")).click();
+    //     await page.waitForTimeout(3000);
+    // }
+    for (var i = 0; i < location.length; i++)
     {
-        await page.getByText(new RegExp("^" + location[i] + "$", "i")).click();
-        await page.waitForTimeout(3000);
+
+        await page.locator('#contentPage_slice1_TreeList_Tree_TreeView').getByText(location[i]).click();
+
     }
     await page.waitForTimeout(3000);
     await page.click(`li:has-text("New Child")`);
@@ -604,7 +624,7 @@ if (ambiente != 'AC_PRD' && ambiente != 'AC_QLD' && ambiente != 'AC_TST' && ambi
     await page.click(`li:has-text("${maquina}")`);
     await page.waitForTimeout(3000);
 
-    await page.click(`li:has-text("XXX")`);
+    await page.click(`li:has-text("XX")`);
     
     const va2 = await page.locator('.fa-share').nth(2);
     const vatextoHandle2 = await va2.first();
