@@ -10,7 +10,7 @@ const config = require('../../../CRIARMAQUINA/tests/dbConnection/connection.js')
 // -----------Ambientes-----------
 
 let ambientes_nome: any[] = ['AC_PRD','AC_QLD','AC_TST','AFL_PRD','AFL_QLD','AFL_TST','ACF_PRD','ACF_QLD','ACF_TST','ACC_PRD','ACC_QLD','ACC_TST','DEV','AQS_PRD','AQS_TST','ARC_PRD','ARC_TST','ACO_PRD','ACO_TST','CLP_PRD','CLP_TST','DISNEYLAND','MCS_TST'];
-let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTARCMESAPP01','KTMESAPP11','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01','ktmesapp06'];
+let ambientes_links: any[] = ['AMR-MES15','AMRMMES89','ktmesapp04','AMR-MES16','AMRMMES88','KTMESAPP03','AMRMMES28','AMRMMES87','KTMESAPP05','AMRMMES30','AMRMMES84','ktmesapp02','ktmesapp01','KTARCMESAPP01','172.16.1.15','KTARCMESAPP01','KTMESAPP10','KTACOMESAPP01','KTMESAPP08','KTCLPMESAPP01','KTMESAPP07','ktdisneyland01','ktmesapp06'];
 
 let output, user = '';
 // Executar um comando PowerShell e capturar a saída
@@ -85,6 +85,7 @@ test('CriarAreaPai', async ({ page }) => {
 
     let ambiente;
     let site;
+    let localizacao;
 
     if (dadosExcel) {
         for (var i = 0; i < 4; i++)
@@ -94,7 +95,11 @@ test('CriarAreaPai', async ({ page }) => {
 
             if (i == 1) ambiente = segundaLinha['Site'] as string;
 
-            if (i == 3) site = segundaLinha['Site'] as string;
+            if (i == 3)
+            {
+                site = segundaLinha['Site'] as string;
+                localizacao = segundaLinha['TagGroup'] as string;
+            }
 
         }
     } else {
@@ -115,6 +120,7 @@ test('CriarAreaPai', async ({ page }) => {
         if (i == position) ambiente_final = ambientes_links[i];
     }
 
+    let TagGroup;
     let General;
     let Notificacoes;
     let Notes;
@@ -125,9 +131,11 @@ test('CriarAreaPai', async ({ page }) => {
         const segundaLinha: LinhaExcel = dadosExcel[1] as LinhaExcel;
 
         // Por exemplo, para acessar um valor específico de uma coluna, você pode usar a chave correspondente ao cabeçalho
+        TagGroup = segundaLinha['TagGroup'] as string;
         General = segundaLinha['General'] as string;
         Notificacoes = segundaLinha['Notificações'] as string;
         Notes = segundaLinha['Notes'] as string;
+        console.log(TagGroup);
         console.log(General);
         console.log(Notificacoes);
         console.log(Notes);
@@ -680,10 +688,17 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     await page.goto('http://' + ambiente_final + '/TS/pages/' + site + '/config/locations/');
 
     await page.waitForTimeout(3000);
+    // for (var i = 0; i < location.length; i++)
+    // {
+    //     await page.getByText(new RegExp("^" + location[i] + "$", "i")).click();
+    //     await page.waitForTimeout(3000);
+    // }
+
     for (var i = 0; i < location.length; i++)
     {
-        await page.getByText(new RegExp("^" + location[i] + "$", "i")).click();
-        await page.waitForTimeout(3000);
+
+        await page.locator('#contentPage_slice1_TreeList_Tree_TreeView').getByText(location[i]).click();
+    
     }
 
     await page.waitForTimeout(3000);
@@ -697,6 +712,23 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     await page.waitForTimeout(2000);
     await page.click('#contentPage_Save_Button');
     await page.waitForTimeout(5000);
+
+    // -----Criar TagGroup-----
+
+    await page.goto('http://' + ambiente_final + '/TS/pages/' + site + '/config/tags/');
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("Expand All")`);
+    await page.waitForTimeout(3000);
+    await page.click(`#contentPage_slice1_TreeList_Tree_Container li:has-text("${localizacao}")`);
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("New Child")`);
+    await page.waitForTimeout(3000);
+    await page.fill('#tseditName',TagGroup);
+    await page.waitForTimeout(3000);
+    await page.click('#contentPage_Save_Button');
+    await page.waitForTimeout(5000);
+
+      // -----Fim TagGroup-----
 
     await page.goto('http://' + ambiente_final + '/TS/pages/' + site + '/config/tags/');
     await page.waitForTimeout(3000);
@@ -724,7 +756,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
     await page.waitForTimeout(3000);
     await page.click('.fa-edit');
     await page.waitForTimeout(3000);
-    await page.fill('#tseditName', templatetags);
+    await page.fill('#tseditName', name);
     await page.waitForTimeout(3000);
     await page.click('#contentPage_Save_Button');
     await page.waitForTimeout(3000);
@@ -734,7 +766,7 @@ function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
 
     await page.click(`span:has-text("Expand All")`);
     await page.waitForTimeout(3000);
-    await page.click(`li:has-text("${area}")`);
+    await page.click(`#contentPage_slice2_TagGroup_Tree_TreeView li:has-text("${area}")`);  
     await page.waitForTimeout(3000);
     await page.click('#contentPage_slice2_Move');
 
