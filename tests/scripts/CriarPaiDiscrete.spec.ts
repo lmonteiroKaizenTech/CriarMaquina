@@ -728,7 +728,7 @@ test('CriarAreaPai', async ({ page }) => {
     await page.click('#contentPage_Save_Button');
     await page.waitForTimeout(5000);
 
-      // -----Fim TagGroup-----
+    // -----Fim TagGroup-----
 
     await page.goto('http://' + ambiente_final + '/TS/pages/' + site + '/config/tags/');
     await page.waitForTimeout(3000);
