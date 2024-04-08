@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { fail } from 'assert';
+import { accessSync } from 'fs';
 import * as XLSX from 'xlsx';
 const { exec } = require('child_process');
 
@@ -873,7 +874,7 @@ test('CriarAreaPai', async ({ page }) => {
     await page.waitForTimeout(3000);
     const primeiro_segundo = await page.locator('.bi-tag-fill').first();
     if (primeiro_segundo) primeiro_segundo.click();
-    await page.waitForTimeout(3000),
+    await page.waitForTimeout(3000);
     await page.fill('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Name_TextBox', templatetags + '.Prod.TaxaProducaoTeorica');
     await page.waitForTimeout(3000);
     await page.click('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Find_Button');
@@ -1064,7 +1065,7 @@ test('CriarAreaPai', async ({ page }) => {
         {
             await page.goto('http://ktmesapp01/TS/pages/root/dev/osi_teste/pd0000002170/');
 
-            // await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
+            // await page.getByLabel('Login').fill('kt0032'); //utilizador kt
             // await page.getByLabel('Password').click();
             // await page.getByLabel('Password').fill('12345'); // password
             // await page.getByRole('button', { name: 'Sign In' }).click();

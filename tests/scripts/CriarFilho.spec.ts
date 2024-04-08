@@ -62,39 +62,39 @@ test('CriarMinhaMáquina', async ({ page }) => {
 
     // ------------------------------Recolher dados (Não tags)------------------------------
 
-        //------------Variáveis------------
+    //------------Variáveis------------
 
-        let ambiente;
-        let site;
-    
-        if (dadosExcel) {
-            for (var i = 0; i < 4; i++)
-            {
-                // Por exemplo, para armazenar os valores da segunda linha do Excel (índice 1)
-                const segundaLinha: LinhaExcel = dadosExcel[i] as LinhaExcel;
-    
-                if (i == 1) ambiente = segundaLinha['Site'] as string;
-    
-                if (i == 3) site = segundaLinha['Site'] as string;
-    
-            }
-        } else {
-            console.log("Não foi possível ler os dados do arquivo Excel.");
-        }
-        console.log(ambiente);
-        console.log(site);
-    
-        var position = 0;
-        for (var i = 0; i < ambientes_nome.length; i++)
+    let ambiente;
+    let site;
+
+    if (dadosExcel) {
+        for (var i = 0; i < 4; i++)
         {
-            if (ambiente == ambientes_nome[i]) position = i;
+            // Por exemplo, para armazenar os valores da segunda linha do Excel (índice 1)
+            const segundaLinha: LinhaExcel = dadosExcel[i] as LinhaExcel;
+
+            if (i == 1) ambiente = segundaLinha['Site'] as string;
+
+            if (i == 3) site = segundaLinha['Site'] as string;
+
         }
-    
-        let ambiente_final;
-        for (var i = 0; i < ambientes_links.length; i++)
-        {
-            if (i == position) ambiente_final = ambientes_links[i];
-        }
+    } else {
+        console.log("Não foi possível ler os dados do arquivo Excel.");
+    }
+    console.log(ambiente);
+    console.log(site);
+
+    var position = 0;
+    for (var i = 0; i < ambientes_nome.length; i++)
+    {
+        if (ambiente == ambientes_nome[i]) position = i;
+    }
+
+    let ambiente_final;
+    for (var i = 0; i < ambientes_links.length; i++)
+    {
+        if (i == position) ambiente_final = ambientes_links[i];
+    }
 
     let excel_AUT;
     let maquina;

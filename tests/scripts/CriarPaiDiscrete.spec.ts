@@ -871,7 +871,7 @@ test('CriarAreaPai', async ({ page }) => {
     await page.waitForTimeout(3000);
     const primeiro_segundo = await page.locator('.bi-tag-fill').first();
     if (primeiro_segundo) primeiro_segundo.click();
-    await page.waitForTimeout(3000),
+    await page.waitForTimeout(3000);
     await page.fill('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Name_TextBox', templatetags + '.Prod.TaxaProducaoTeorica');
     await page.waitForTimeout(3000);
     await page.click('#contentPage_Picker_TheoreticalCalculationUnitsPerMinuteTagID_Find_Button');
