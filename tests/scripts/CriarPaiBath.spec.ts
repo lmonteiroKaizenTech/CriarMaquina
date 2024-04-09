@@ -276,7 +276,7 @@ test('CriarMaquinaBatch', async ({ page }) => {
     console.log(EventName);
 
     console.log('erroooooooo');
-    console.log('"C:\\Users\\' + user + '\\Desktop\\disneyland.xlsx"');
+    console.log('C:\\Users\\' + user + '\\Desktop\\disneyland.xlsx');
     console.log('erroooooooo');
 
     //------------Ir buscar site------------
@@ -318,6 +318,24 @@ test('CriarMaquinaBatch', async ({ page }) => {
 
     //------------Fim do Ir buscar site------------
 
+    // ------------------------------Gerar Key's------------------------------
+
+    await page.goto('http://ktmesapp01/TS/pages/root/dev/osi_teste/pd0000002170/');
+
+    await page.getByLabel('Login').fill('kt0032'); //utilizador kt 
+    await page.getByLabel('Password').click();
+    await page.getByLabel('Password').fill('12345'); // password
+    await page.getByRole('button', { name: 'Sign In' }).click();
+
+    await page.waitForTimeout(5000);
+
+    await page.click('#contentPage_ctl25');
+    await page.click('.btn-item-key-btn_GerarKey');
+    await page.waitForTimeout(3000);
+    const key2 = await page.locator('#contentPage_ctl04').textContent();
+    let final_key2;
+    if (key2) final_key2 = key2.trim();
+
     // ---------------Login Site Principal---------------
     
     await page.goto('http://' + ambiente_final + '/TS/');
@@ -343,7 +361,7 @@ test('CriarMaquinaBatch', async ({ page }) => {
 
     // Localize o input de arquivo e insira o caminho do arquivo Excel
     const inputFile = await page.$('input[type="file"]');
-    if (inputFile) await inputFile.setInputFiles('"C:\\Users\\' + user + '\\Desktop\\disneyland.xlsx"');
+    if (inputFile) await inputFile.setInputFiles('C:\\Users\\' + user + '\\Desktop\\disneyland.xlsx');
     await page.waitForTimeout(3000);
     await page.click('#Buttons_Import');
 
@@ -461,6 +479,35 @@ test('CriarMaquinaBatch', async ({ page }) => {
     await page.click('#contentPage_Save_Button');
     await page.waitForTimeout(3000);
 
+    //-----------------Criar Location------------------
+
+    await page.click(`li:has-text("Locations")`);
+    await page.waitForTimeout(3000);
+    // for (var i = 0; i < tags.length; i++)
+    // {
+    //     await page.getByText(new RegExp("^" + location[i] + "$", "i")).click();
+    //     await page.waitForTimeout(3000);
+    // }
+    for (var i = 0; i < location.length; i++)
+    {
+
+        await page.locator('#contentPage_slice1_TreeList_Tree_TreeView').getByText(location[i]).click();
+
+    }
+    await page.waitForTimeout(3000);
+    await page.click(`li:has-text("New Child")`);
+    await page.waitForTimeout(3000);
+    await page.fill('#tseditName',locationname);
+    await page.waitForTimeout(2000);
+    if (key2) await page.fill('#tseditUniqueID',final_key2);
+    await page.waitForTimeout(2000);
+    await page.selectOption('#tseditLocationTypeID','LT_Maquinas');
+    await page.waitForTimeout(2000);
+    await page.click('#contentPage_Save_Button');
+    await page.waitForTimeout(5000);
+
+    // --------------Criar Máquina--------------
+
     await page.waitForTimeout(3000);
     await page.goto('http://' + ambiente_final + '/TS/pages/' + site + '/config/systems/');
     await page.waitForTimeout(3000);
@@ -475,9 +522,6 @@ test('CriarMaquinaBatch', async ({ page }) => {
     await page.waitForTimeout(3000);
     await page.getByRole('link', { name: 'Batch System', exact: true }).click();
     await page.waitForTimeout(3000);
-
-    // --------------Criar Máquina--------------
-
     await page.fill('#tseditName', name);
     await page.waitForTimeout(3000);
     await page.selectOption('#tseditSystemTypeID', tipo);
