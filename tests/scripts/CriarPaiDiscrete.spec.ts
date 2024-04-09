@@ -280,7 +280,7 @@ test('CriarAreaPai', async ({ page }) => {
                 if (RegraLote[i+1] != null) await page.fill('#tseditcp_CPS0000000017_CP0000000048', RegraLote[i+1]);
                 break;
             case 4:
-                if (RegraLote[i+1] == "Sim") await page.click('#tseditcp_CPS0000000017_CP0000000092');
+                if (RegraLote[i+1] == "Não") await page.click('#tseditcp_CPS0000000017_CP0000000092');
                 break;
             case 6:
                 if (RegraLote[i+1] == "Sim") await page.click('#tseditcp_CPS0000000017_CP0000000184');
@@ -830,7 +830,7 @@ test('CriarAreaPai', async ({ page }) => {
     await page.waitForTimeout(3000);
     await page.click(`li:has-text("Advanced")`);
 
-    if (script) await page.fill('#tseditScriptClassName',script);
+    if (script) await page.fill('#tseditScriptClassName', script);
 
     await page.fill('#tseditTemplateTagPrefix', templatetags);
     await page.waitForTimeout(3000);
