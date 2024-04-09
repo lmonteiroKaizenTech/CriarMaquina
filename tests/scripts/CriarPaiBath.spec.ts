@@ -275,6 +275,10 @@ test('CriarMaquinaBatch', async ({ page }) => {
     }
     console.log(EventName);
 
+    console.log('erroooooooo');
+    console.log('"C:\\Users\\' + user + '\\Desktop\\disneyland.xlsx"');
+    console.log('erroooooooo');
+
     //------------Ir buscar site------------
 
     let ambiente;
