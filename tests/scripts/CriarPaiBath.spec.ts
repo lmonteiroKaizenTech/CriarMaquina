@@ -499,7 +499,7 @@ test('CriarMaquinaBatch', async ({ page }) => {
     await page.waitForTimeout(3000);
     await page.fill('#tseditName',locationname);
     await page.waitForTimeout(2000);
-    if (key2) await page.fill('#tseditUniqueID',final_key2);
+    if (key2) await page.fill('#tseditUniqueID', final_key2);
     await page.waitForTimeout(2000);
     await page.selectOption('#tseditLocationTypeID','LT_Maquinas');
     await page.waitForTimeout(2000);
@@ -588,7 +588,46 @@ test('CriarMaquinaBatch', async ({ page }) => {
 
     await page.waitForTimeout(3000);
 
+    // Definindo o tipo de uma linha do Excel
+    type LinhaExcel2 = Record<string, string | null>;
+
+    // Função para ler o arquivo Excel
+    function lerArquivoExcel2(nomeArquivo: string): LinhaExcel[] {
+        // Carrega o arquivo
+        const workbook = XLSX.readFile(nomeArquivo);
+
+        // Pega a primeira planilha do arquivo
+        const primeiraPlanilha = workbook.Sheets[workbook.SheetNames[0]];
+
+        // Converte os dados da planilha em um objeto JSON
+        const dados = XLSX.utils.sheet_to_json(primeiraPlanilha, { header: 1 }) as string[][];
+
+        // Extrai os cabeçalhos da primeira linha
+        const colunas = dados[0];
+
+        // Inicializa um array para armazenar os dados
+        const dadosFormatados: LinhaExcel[] = [];
+
+        // Itera sobre as linhas de dados, começando da segunda linha
+        for (let i = 1; i < dados.length; i++) {
+            const linha: LinhaExcel = {};
+            // Itera sobre as colunas
+            for (let j = 0; j < colunas.length; j++) {
+                const valor = dados[i][j];
+                linha[colunas[j]] = valor !== undefined ? valor.toString() : null;
+            }
+            dadosFormatados.push(linha);
+        }
+
+        // Retorna os dados formatados
+        return dadosFormatados;
+    }
     
+    // Exemplo de uso
+    const dadosExcel2 = lerArquivoExcel('C:\\Users\\' + user + '\\Desktop\\CriarPaiBath.xlsx');
+    console.log(dadosExcel2);
+
+    await page.click(`a:has-text("New")`);
 
     await page.close();
 
