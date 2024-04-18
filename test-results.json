@@ -74,7 +74,7 @@
       "specs": [
         {
           "title": "CriarMaquinaBatch",
-          "ok": true,
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -86,18 +86,33 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 409186,
-                  "errors": [],
+                  "status": "timedOut",
+                  "duration": 1500012,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 1500000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 1500000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "c:\\Users\\LeandroMonteiro\\Desktop\\GitHub\\CriarMaquina\\tests\\scripts\\CriarPaiBath.spec.ts",
+                        "column": 24,
+                        "line": 867
+                      },
+                      "message": "Error: page.click: Test timeout of 1500000ms exceeded.\nCall log:\n  \u001b[2m- waiting for locator('button:has-text(\"Assign\")')\u001b[22m\n\n\n\u001b[0m \u001b[90m 865 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'#contentPage_Picker_TriggerTagID_Find_Button'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 866 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 867 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'button:has-text(\"Assign\")'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 868 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 869 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m`li:has-text(\"Advanced\")`\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 870 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\n\u001b[2m    at c:\\Users\\LeandroMonteiro\\Desktop\\GitHub\\CriarMaquina\\tests\\scripts\\CriarPaiBath.spec.ts:867:24\u001b[22m"
+                    }
+                  ],
                   "stdout": [
                     {
-                      "text": "[\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[32m'Event Definition Type'\u001b[39m,\n    \u001b[32m'2'\u001b[39m: \u001b[32m'Priority'\u001b[39m,\n    \u001b[32m'3'\u001b[39m: \u001b[32m'Trigger when Equals'\u001b[39m,\n    \u001b[32m'4'\u001b[39m: \u001b[32m'OEE Event Type'\u001b[39m,\n    \u001b[32m'5'\u001b[39m: \u001b[32m'Re-Evaluate System Event on Start'\u001b[39m,\n    \u001b[32m'6'\u001b[39m: \u001b[32m'Re-Evaluate System Event on End'\u001b[39m,\n    \u001b[32m'7'\u001b[39m: \u001b[32m'Show For Acknowledge'\u001b[39m,\n    \u001b[32m'8'\u001b[39m: \u001b[32m'MTBF Type'\u001b[39m,\n    \u001b[32m'9'\u001b[39m: \u001b[32m'Duration (Seconds)'\u001b[39m,\n    \u001b[32m'10'\u001b[39m: \u001b[32m'Isolation Type'\u001b[39m,\n    \u001b[32m'11'\u001b[39m: \u001b[32m'CP_EventDefinitionKey_ForMTBFType-Failure'\u001b[39m,\n    \u001b[32m'12'\u001b[39m: \u001b[32m'CP_EventDefinitionKey_ForMTBFType-NONFailure'\u001b[39m,\n    \u001b[32m'13'\u001b[39m: \u001b[32m'CP_EventDefinitionKey_ForMTBFType-Excluded'\u001b[39m,\n    \u001b[32m'14'\u001b[39m: \u001b[32m'CP_EventDefinitionIDLigada'\u001b[39m,\n    \u001b[32m'15'\u001b[39m: \u001b[32m'CP_TagEventoCodigoAutomacao'\u001b[39m,\n    \u001b[32m'16'\u001b[39m: \u001b[32m'CP_LoockupSetKeyCategoriaEventosAuto'\u001b[39m,\n    Site: \u001b[32m'Ambiente'\u001b[39m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[32m'SysT_MaquinaDiscreta'\u001b[39m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'CHK'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'ProtocoloAutomacao'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[32m'CHK_BathTeste'\u001b[39m,\n    Location: \u001b[32m'CHK_L_Champcork'\u001b[39m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[32m'LocationTeste'\u001b[39m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[32m'CHK_A_Moldacao'\u001b[39m,\n    General: \u001b[32m'Name'\u001b[39m,\n    Advanced: \u001b[32m'Script Class Name'\u001b[39m,\n    Maquina: \u001b[32m'NumeroDaMaquina'\u001b[39m,\n    Notes: \u001b[32m'Alternate Name'\u001b[39m,\n    KPI: \u001b[32m'Rejeitados'\u001b[39m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[32m'Name'\u001b[39m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[32m'Name'\u001b[39m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[32m'AC_TST'\u001b[39m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'Moldacao'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Protocolo CHK'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[32m'CHK_L_30,5'\u001b[39m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'TesteXX'\u001b[39m,\n    Advanced: \u001b[32m'Teste'\u001b[39m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[32m'GrupoTeste1'\u001b[39m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[32m'EventTeste1'\u001b[39m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[32m'Site'\u001b[39m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[32m'CHK_Teste'\u001b[39m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_PARAR_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[32m'CHK_L_Moldacao'\u001b[39m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'Schedule'\u001b[39m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[32m'ProtocoloAutomacao'\u001b[39m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[32m'Automáticos'\u001b[39m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[32m'GrupoTeste2'\u001b[39m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[32m'EventTeste2'\u001b[39m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[32m'home'\u001b[39m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Não'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'CHK_Geral'\u001b[39m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[1mnull\u001b[22m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_TROCAR_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'Product Set'\u001b[39m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[32m'Capture Scheme'\u001b[39m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[1mnull\u001b[22m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[32m'CHK_ProdS_ProdutosChampcork'\u001b[39m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[32m'1EE_KPI_CALC_CODIGOS'\u001b[39m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[1mnull\u001b[22m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_CONTENTOR_SEGUINTE_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[1mnull\u001b[22m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[1mnull\u001b[22m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[1mnull\u001b[22m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[1mnull\u001b[22m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_TRANSPORTE_AUTOMACAO'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[1mnull\u001b[22m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[1mnull\u001b[22m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[1mnull\u001b[22m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[1mnull\u001b[22m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'CP_MAQUINA_PERMITE_ARRANQUE_AUTORIZA_ETIQUETA_SEGUINTE'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[1mnull\u001b[22m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[1mnull\u001b[22m\n  },\n  {\n    \u001b[32m'1'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'2'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'3'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'4'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'5'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'6'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'7'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'8'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'9'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'10'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'11'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'12'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'13'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'14'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'15'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'16'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Site: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Tipo Máquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Caminho Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Campos Automação'\u001b[39m: \u001b[32m'Sim'\u001b[39m,\n    \u001b[32m'Template Tags'\u001b[39m: \u001b[1mnull\u001b[22m,\n    Location: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Nome da Location'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Area da Maquina'\u001b[39m: \u001b[1mnull\u001b[22m,\n    General: \u001b[1mnull\u001b[22m,\n    Advanced: \u001b[1mnull\u001b[22m,\n    Maquina: \u001b[1mnull\u001b[22m,\n    Notes: \u001b[1mnull\u001b[22m,\n    KPI: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Group)'\u001b[39m: \u001b[1mnull\u001b[22m,\n    \u001b[32m'Event Definition (Event)'\u001b[39m: \u001b[1mnull\u001b[22m\n  }\n]\n"
+                      "text": "TEMPLATE DA TAGGGGG:CHK_Bath\n"
                     },
                     {
                       "text": "-------------------------------\n"
                     },
                     {
-                      "text": "Protocolo CHK\n"
+                      "text": "ProtocoloAutomacao\n"
                     },
                     {
                       "text": "Não\n"
@@ -118,9 +133,6 @@
                       "text": "SysT_MaquinaDiscreta\n"
                     },
                     {
-                      "text": "CHK_BathTeste\n"
-                    },
-                    {
                       "text": "LocationTeste\n"
                     },
                     {
@@ -136,40 +148,100 @@
                       "text": "-------------------------------\n"
                     },
                     {
-                      "text": "[ \u001b[32m'CHK'\u001b[39m, \u001b[32m'Moldacao'\u001b[39m, \u001b[32m'CHK_Teste'\u001b[39m ]\n"
+                      "text": "[ \u001b[32m'CHK'\u001b[39m, \u001b[32m'Moldacao'\u001b[39m, \u001b[32m'CHK_Bath'\u001b[39m ]\n"
                     },
                     {
                       "text": "-----------------TesteXX-----------------\n"
                     },
                     {
-                      "text": "[ \u001b[32m'GrupoTeste1'\u001b[39m, \u001b[32m'GrupoTeste2'\u001b[39m ]\n"
+                      "text": "erroooooooo\n"
                     },
                     {
-                      "text": "[ \u001b[32m'EventTeste1'\u001b[39m, \u001b[32m'EventTeste2'\u001b[39m ]\n"
+                      "text": "C:\\Users\\leandromonteiro\\Desktop\\Tags (1).xlsx\n"
                     },
                     {
                       "text": "erroooooooo\n"
                     },
                     {
-                      "text": "C:\\Users\\leandromonteiro\\Desktop\\disneyland.xlsx\n"
+                      "text": "-----------------Teste1XX,Teste2XX,Teste3XX-----------------\n"
                     },
                     {
-                      "text": "erroooooooo\n"
+                      "text": "-----------------CHK_Geral,CHK_Geral,CHK_Geral-----------------\n"
+                    },
+                    {
+                      "text": "-----------------01,02,03-----------------\n"
+                    },
+                    {
+                      "text": "-----------------Teste,Teste,Teste-----------------\n"
+                    },
+                    {
+                      "text": "-----------------12345 CHK_Bath.Teste1,CHK_Bath.Teste2,CHK_Bath.Teste3-----------------\n"
+                    },
+                    {
+                      "text": "soma2: 23\n"
+                    },
+                    {
+                      "text": "forms: 2\n"
+                    },
+                    {
+                      "text": "ReEvaluateSystemEventonStart: Sim,Não,,,,,,Sim,Não,,,,,,Não,Sim,,,,\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[32m'EventTeste1'\u001b[39m, \u001b[32m'EventTeste2'\u001b[39m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[32m'EventTeste1'\u001b[39m,\n  \u001b[32m'EventTeste2'\u001b[39m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[32m'EventTeste1'\u001b[39m, \u001b[32m'EventTeste2'\u001b[39m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m\n]\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[32m'1'\u001b[39m,  \u001b[32m'2'\u001b[39m,  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[32m'1'\u001b[39m,  \u001b[32m'2'\u001b[39m,  \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[32m'1'\u001b[39m,\n  \u001b[32m'2'\u001b[39m,  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m\n]\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[32m'Manual'\u001b[39m, \u001b[32m'Manual'\u001b[39m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[32m'Manual'\u001b[39m, \u001b[32m'Manual'\u001b[39m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[32m'Manual'\u001b[39m,\n  \u001b[32m'Manual'\u001b[39m, \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m\n]\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m\n]\n"
+                    },
+                    {
+                      "text": "[\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m\n]\n"
                     },
                     {
                       "text": "AC_TST\n"
                     },
                     {
                       "text": "home\n"
+                    },
+                    {
+                      "text": "Quantidade: 4\n"
+                    },
+                    {
+                      "text": "Keys: FD0000000450,FD0000000451,FD0000000452,FD0000000453,FD0000000454,FD0000000455,FD0000000456,FD0000000457,FD0000000458,FD0000000459,FD0000000460,FD0000000461\n"
+                    },
+                    {
+                      "text": "\u001b[33m2\u001b[39m\n"
+                    },
+                    {
+                      "text": "Formulário: 2\n"
+                    },
+                    {
+                      "text": "\u001b[33m2\u001b[39m\n"
+                    },
+                    {
+                      "text": "Formulário: 2\n"
+                    },
+                    {
+                      "text": "\u001b[33m2\u001b[39m\n"
+                    },
+                    {
+                      "text": "Formulário: 2\n"
+                    },
+                    {
+                      "text": "\u001b[33m2\u001b[39m\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-04-09T10:42:42.722Z",
+                  "startTime": "2024-04-18T09:33:55.473Z",
                   "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
           "id": "fb0a737dfefa76e39580-227bb3cfcba5dc04c33a",
@@ -182,11 +254,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-04-09T10:42:41.426Z",
-    "duration": 411034.816,
-    "expected": 1,
+    "startTime": "2024-04-18T09:33:54.132Z",
+    "duration": 1502773.814,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }
