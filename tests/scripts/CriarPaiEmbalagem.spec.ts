@@ -626,13 +626,14 @@ test('CriarAreaPai', async ({ page }) => {
     }
     console.log(GroupName);
 
-    let EventName: any[] = [], EventDefinitionType: any[] = [], Priority: any[] = [], TriggerwhenEquals: any[] = [], OEEEventType: any[] = [], ReEvaluateSystemEventonStart: any[] = [], ReEvaluateSystemEventonEnd: any[] = [], ShowForAcknowledge: any[] = [], MTBFType: any[] = [], Duration: any[] = [], IsolationType: any[] = [], CP_EventDefinitionKey_ForMTBFTypeFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeNONFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeExcluded: any[] = [], CP_EventDefinitionIDLigada: any[] = [], CP_TagEventoCodigoAutomacao: any[] = [], CP_LoockupSetKeyCategoriaEventosAuto: any[] = [];
+    let EventName: any[] = [], EventDefinitionType: any[] = [], triggertag: any[] = [], Priority: any[] = [], TriggerwhenEquals: any[] = [], OEEEventType: any[] = [], ReEvaluateSystemEventonStart: any[] = [], ReEvaluateSystemEventonEnd: any[] = [], ShowForAcknowledge: any[] = [], MTBFType: any[] = [], Duration: any[] = [], IsolationType: any[] = [], CP_EventDefinitionKey_ForMTBFTypeFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeNONFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeExcluded: any[] = [], CP_EventDefinitionIDLigada: any[] = [], CP_TagEventoCodigoAutomacao: any[] = [], CP_LoockupSetKeyCategoriaEventosAuto: any[] = [];
 
     for (var i = 1; i < soma; i++)
     {
         const segundaLinha: LinhaExcel = dadosExcel2[i] as LinhaExcel;
         EventName.push(segundaLinha['Event Definition (Event)'] as string);
         EventDefinitionType.push(segundaLinha['1'] as string);
+        triggertag.push(segundaLinha['17'] as string);
         Priority.push(segundaLinha['2'] as string);
         TriggerwhenEquals.push(segundaLinha['3'] as string);
         OEEEventType.push(segundaLinha['4'] as string);
@@ -832,7 +833,7 @@ test('CriarAreaPai', async ({ page }) => {
     await page.waitForTimeout(3000);
     await page.click(`li:has-text("Advanced")`);
 
-    if (script) await page.fill('#tseditScriptClassName',script);
+    if (script) await page.fill('#tseditScriptClassName', script);
 
     await page.fill('#tseditTemplateTagPrefix', templatetags);
     await page.waitForTimeout(3000);
@@ -1107,6 +1108,14 @@ test('CriarAreaPai', async ({ page }) => {
             await page.fill('#tseditName',EventName[i]);
             await page.waitForTimeout(3000);
             if (EventDefinitionType[i]) await page.selectOption('#tseditEventDefinitionTypeID', EventDefinitionType[i]);
+            await page.waitForTimeout(3000);
+            await page.click('#contentPage_tseditTriggerTagID_Picker');
+            await page.waitForTimeout(3000);
+            await page.fill('#contentPage_Picker_TriggerTagID_Name_TextBox', templatetags[i] + '.' + triggertag[i]);
+            await page.waitForTimeout(3000);
+            await page.click('#contentPage_Picker_TriggerTagID_Find_Button');
+            await page.waitForTimeout(3000);
+            await page.click('button:has-text("Assign")');
             await page.waitForTimeout(3000);
             await page.fill('#tseditKey', final_keyEventDefinition);
             if (Priority[i]) await page.fill('#tseditPriority', Priority[i]);

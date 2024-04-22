@@ -86,27 +86,31 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "timedOut",
-                  "duration": 1500012,
+                  "status": "failed",
+                  "duration": 1435253,
                   "error": {
-                    "message": "\u001b[31mTest timeout of 1500000ms exceeded.\u001b[39m"
+                    "message": "Error: page.waitForTimeout: Target page, context or browser has been closed",
+                    "stack": "Error: page.waitForTimeout: Target page, context or browser has been closed\n    at c:\\Users\\LeandroMonteiro\\Desktop\\GitHub\\CriarMaquina\\tests\\scripts\\CriarPaiBath.spec.ts:835:20",
+                    "location": {
+                      "file": "c:\\Users\\LeandroMonteiro\\Desktop\\GitHub\\CriarMaquina\\tests\\scripts\\CriarPaiBath.spec.ts",
+                      "column": 20,
+                      "line": 835
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 833 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 834 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'#tseditName'\u001b[39m\u001b[33m,\u001b[39m name_vetor[i])\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 835 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 836 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 837 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'#contentPage_tseditJobTagID_Picker'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 838 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'#contentPage_Picker_JobTagID_Name_TextBox'\u001b[39m\u001b[33m,\u001b[39mtemplatetags[i] \u001b[33m+\u001b[39m \u001b[32m'.Ord.Ordem'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
                   },
                   "errors": [
                     {
-                      "message": "\u001b[31mTest timeout of 1500000ms exceeded.\u001b[39m"
-                    },
-                    {
                       "location": {
                         "file": "c:\\Users\\LeandroMonteiro\\Desktop\\GitHub\\CriarMaquina\\tests\\scripts\\CriarPaiBath.spec.ts",
-                        "column": 24,
-                        "line": 867
+                        "column": 20,
+                        "line": 835
                       },
-                      "message": "Error: page.click: Test timeout of 1500000ms exceeded.\nCall log:\n  \u001b[2m- waiting for locator('button:has-text(\"Assign\")')\u001b[22m\n\n\n\u001b[0m \u001b[90m 865 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'#contentPage_Picker_TriggerTagID_Find_Button'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 866 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 867 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'button:has-text(\"Assign\")'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 868 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 869 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m`li:has-text(\"Advanced\")`\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 870 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\n\u001b[2m    at c:\\Users\\LeandroMonteiro\\Desktop\\GitHub\\CriarMaquina\\tests\\scripts\\CriarPaiBath.spec.ts:867:24\u001b[22m"
+                      "message": "Error: page.waitForTimeout: Target page, context or browser has been closed\n\n\u001b[0m \u001b[90m 833 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 834 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'#tseditName'\u001b[39m\u001b[33m,\u001b[39m name_vetor[i])\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 835 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 836 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 837 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'#contentPage_tseditJobTagID_Picker'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 838 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'#contentPage_Picker_JobTagID_Name_TextBox'\u001b[39m\u001b[33m,\u001b[39mtemplatetags[i] \u001b[33m+\u001b[39m \u001b[32m'.Ord.Ordem'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\n\u001b[2m    at c:\\Users\\LeandroMonteiro\\Desktop\\GitHub\\CriarMaquina\\tests\\scripts\\CriarPaiBath.spec.ts:835:20\u001b[22m"
                     }
                   ],
                   "stdout": [
                     {
-                      "text": "TEMPLATE DA TAGGGGG:CHK_Bath\n"
+                      "text": "TEMPLATE DA TAG:CHK_Bath\n"
                     },
                     {
                       "text": "-------------------------------\n"
@@ -178,28 +182,283 @@
                       "text": "-----------------12345 CHK_Bath.Teste1,CHK_Bath.Teste2,CHK_Bath.Teste3-----------------\n"
                     },
                     {
-                      "text": "soma2: 23\n"
+                      "text": "soma2: 38\n"
                     },
                     {
                       "text": "forms: 2\n"
                     },
                     {
-                      "text": "ReEvaluateSystemEventonStart: Sim,Não,,,,,,Sim,Não,,,,,,Não,Sim,,,,\n"
+                      "text": "ReEvaluateSystemEventonStart: Sim,Não,Sim,,,,,,,,,,Sim,Não,,,,,,,,,,,Sim,Não,,,,,,,,,\n"
                     },
                     {
-                      "text": "[\n  \u001b[32m'EventTeste1'\u001b[39m, \u001b[32m'EventTeste2'\u001b[39m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[32m'EventTeste1'\u001b[39m,\n  \u001b[32m'EventTeste2'\u001b[39m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[32m'EventTeste1'\u001b[39m, \u001b[32m'EventTeste2'\u001b[39m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m\n]\n"
+                      "text": "[\n  \u001b[32m'EventTeste1'\u001b[39m, \u001b[32m'EventTeste2'\u001b[39m, \u001b[32m'EventTeste3'\u001b[39m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[32m'EventTeste1'\u001b[39m, \u001b[32m'EventTeste2'\u001b[39m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[32m'EventTeste1'\u001b[39m, \u001b[32m'EventTeste2'\u001b[39m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,          \u001b[1mnull\u001b[22m\n]\n"
                     },
                     {
-                      "text": "[\n  \u001b[32m'1'\u001b[39m,  \u001b[32m'2'\u001b[39m,  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[32m'1'\u001b[39m,  \u001b[32m'2'\u001b[39m,  \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[32m'1'\u001b[39m,\n  \u001b[32m'2'\u001b[39m,  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m\n]\n"
+                      "text": "[\n  \u001b[32m'1'\u001b[39m,  \u001b[32m'2'\u001b[39m,  \u001b[32m'1'\u001b[39m,  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[32m'1'\u001b[39m,  \u001b[32m'2'\u001b[39m,  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[32m'1'\u001b[39m,  \u001b[32m'2'\u001b[39m,  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m\n]\n"
                     },
                     {
-                      "text": "[\n  \u001b[32m'Manual'\u001b[39m, \u001b[32m'Manual'\u001b[39m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[32m'Manual'\u001b[39m, \u001b[32m'Manual'\u001b[39m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[32m'Manual'\u001b[39m,\n  \u001b[32m'Manual'\u001b[39m, \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m\n]\n"
+                      "text": "[\n  \u001b[32m'Manual'\u001b[39m, \u001b[32m'Manual'\u001b[39m, \u001b[32m'Manual'\u001b[39m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[32m'Manual'\u001b[39m, \u001b[32m'Manual'\u001b[39m, \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[32m'Manual'\u001b[39m, \u001b[32m'Manual'\u001b[39m, \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m,     \u001b[1mnull\u001b[22m\n]\n"
                     },
                     {
-                      "text": "[\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m\n]\n"
+                      "text": "[\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m\n]\n"
                     },
                     {
-                      "text": "[\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m\n]\n"
+                      "text": "[\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m,\n  \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m, \u001b[1mnull\u001b[22m\n]\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 2\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 3\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 4\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 5\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 6\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 7\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 8\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 9\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 10\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 11\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 12\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 13\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 14\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 15\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 16\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 17\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 18\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 19\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 20\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 21\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 22\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 23\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 24\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 25\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 26\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 27\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 28\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "linha5: 29\n"
+                    },
+                    {
+                      "text": "------------------------------------------------------------------------------------------------------\n"
+                    },
+                    {
+                      "text": "Tent: 3,2,2\n"
                     },
                     {
                       "text": "AC_TST\n"
@@ -211,7 +470,7 @@
                       "text": "Quantidade: 4\n"
                     },
                     {
-                      "text": "Keys: FD0000000450,FD0000000451,FD0000000452,FD0000000453,FD0000000454,FD0000000455,FD0000000456,FD0000000457,FD0000000458,FD0000000459,FD0000000460,FD0000000461\n"
+                      "text": "Keys: FD0000000510,FD0000000511,FD0000000512,FD0000000513,FD0000000514,FD0000000515,FD0000000516,FD0000000517,FD0000000518,FD0000000519,FD0000000520,FD0000000521\n"
                     },
                     {
                       "text": "\u001b[33m2\u001b[39m\n"
@@ -220,25 +479,27 @@
                       "text": "Formulário: 2\n"
                     },
                     {
-                      "text": "\u001b[33m2\u001b[39m\n"
+                      "text": "\u001b[33m0\u001b[39m\n"
                     },
                     {
                       "text": "Formulário: 2\n"
                     },
                     {
-                      "text": "\u001b[33m2\u001b[39m\n"
+                      "text": "\u001b[33m0\u001b[39m\n"
                     },
                     {
                       "text": "Formulário: 2\n"
-                    },
-                    {
-                      "text": "\u001b[33m2\u001b[39m\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-04-18T09:33:55.473Z",
-                  "attachments": []
+                  "startTime": "2024-04-22T11:34:52.539Z",
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "c:\\Users\\LeandroMonteiro\\Desktop\\GitHub\\CriarMaquina\\tests\\scripts\\CriarPaiBath.spec.ts",
+                    "column": 20,
+                    "line": 835
+                  }
                 }
               ],
               "status": "unexpected"
@@ -254,8 +515,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-04-18T09:33:54.132Z",
-    "duration": 1502773.814,
+    "startTime": "2024-04-22T11:34:51.077Z",
+    "duration": 1438125.763,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,

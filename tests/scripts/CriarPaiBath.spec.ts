@@ -141,7 +141,7 @@ test('CriarMaquinaBatch', async ({ page }) => {
             }
             linha4++;
         }
-        console.log('TEMPLATE DA TAGGGGG:' + templatetag);
+        console.log('TEMPLATE DA TAG:' + templatetag);
         if (soma >= 1) aut = true;
 
     } else {
@@ -332,7 +332,7 @@ test('CriarMaquinaBatch', async ({ page }) => {
                             ProductSet_vetor.push(segundaLinha2['General'] as string);
                             consumos_automaticos_vetor.push(segundaLinha2['KPI'] as string);
                             functiondefinition_script.push(segundaLinha2['Function Definition'] as string);
-                            j += 8;
+                            j += 13;
                             i = -1;
                         default:
                             break;
@@ -372,33 +372,18 @@ test('CriarMaquinaBatch', async ({ page }) => {
         // }
         console.log('soma2: ' + soma2);
         //console.log('soma3: ' + soma3);
-        
-        var linha5 = 1, soma3 = 0, EventDefinition_acumuladora = 0;
     
-        while (1 < 2)
-        {
-            const segundaLinha: LinhaExcel2 = dadosExcel2[linha5] as LinhaExcel2;
-            const segundaLinha2: LinhaExcel2 = dadosExcel2[linha5 + 1] as LinhaExcel2;
-
-            const prov = segundaLinha['Event Definition (Event)'];
-            const prov2 = segundaLinha2['Event Definition (Event)'];
-
-            soma3++;
-            if (prov == null && prov2 == null) break;
-            else if (segundaLinha['Event Definition (Event)'] != 'Name') EventDefinition_acumuladora++;
-            linha5++;
-        }
-    
-        let EventName: any[] = [], EventDefinitionType: any[] = [], Priority: any[] = [], TriggerwhenEquals: any[] = [], OEEEventType: any[] = [], ReEvaluateSystemEventonStart: any[] = [], ReEvaluateSystemEventonEnd: any[] = [], ShowForAcknowledge: any[] = [], MTBFType: any[] = [], Duration: any[] = [], IsolationType: any[] = [], CP_EventDefinitionKey_ForMTBFTypeFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeNONFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeExcluded: any[] = [], CP_EventDefinitionIDLigada: any[] = [], CP_TagEventoCodigoAutomacao: any[] = [], CP_LoockupSetKeyCategoriaEventosAuto: any[] = [];
+        let EventName: any[] = [], EventDefinitionType: any[] = [], triggertag: any[] = [], Priority: any[] = [], TriggerwhenEquals: any[] = [], OEEEventType: any[] = [], ReEvaluateSystemEventonStart: any[] = [], ReEvaluateSystemEventonEnd: any[] = [], ShowForAcknowledge: any[] = [], MTBFType: any[] = [], Duration: any[] = [], IsolationType: any[] = [], CP_EventDefinitionKey_ForMTBFTypeFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeNONFailure: any[] = [], CP_EventDefinitionKey_ForMTBFTypeExcluded: any[] = [], CP_EventDefinitionIDLigada: any[] = [], CP_TagEventoCodigoAutomacao: any[] = [], CP_LoockupSetKeyCategoriaEventosAuto: any[] = [];
         var forms = 0;
 
         for (var i = 1; i < soma2; i++)
         {
             const segundaLinha: LinhaExcel2 = dadosExcel2[i] as LinhaExcel2;
-            if (i%8 != 0)
+            if (i%13 != 0)
             {
                 EventName.push(segundaLinha['Event Definition (Event)'] as string);
                 EventDefinitionType.push(segundaLinha['1'] as string);
+                triggertag.push(segundaLinha['17'] as string);
                 Priority.push(segundaLinha['2'] as string);
                 TriggerwhenEquals.push(segundaLinha['3'] as string);
                 OEEEventType.push(segundaLinha['4'] as string);
@@ -416,7 +401,7 @@ test('CriarMaquinaBatch', async ({ page }) => {
                 CP_LoockupSetKeyCategoriaEventosAuto.push(segundaLinha['16'] as string);
             }
             else forms++;
-        }
+        }EventName
         console.log('forms: ' + forms);
         console.log('ReEvaluateSystemEventonStart: ' + ReEvaluateSystemEventonStart);
         console.log(EventName);
@@ -424,6 +409,61 @@ test('CriarMaquinaBatch', async ({ page }) => {
         console.log(EventDefinitionType);
         console.log(MTBFType);
         console.log(CP_TagEventoCodigoAutomacao);
+
+        var linha5 = 1, soma3 = 0, EventDefinition_acumuladora = 0, max = 0;
+        var tent: any[] = [], dif: any[] = [];
+        let isTrue: boolean = true;
+    
+        while (1 < 2)
+        {
+            const segundaLinha: LinhaExcel2 = dadosExcel2[linha5] as LinhaExcel2;
+            const segundaLinha2: LinhaExcel2 = dadosExcel2[linha5 + 1] as LinhaExcel2;
+
+            const prov = segundaLinha['Event Definition (Event)'];
+            const prov2 = segundaLinha2['Event Definition (Event)'];
+
+            soma3++;
+            if (prov == null && prov2 == null && isTrue)
+            {
+                tent.push(EventDefinition_acumuladora);
+                EventDefinition_acumuladora = 0;
+                max++;
+                isTrue = false;
+            }
+            else if (segundaLinha['Event Definition (Event)'] != 'Name' && segundaLinha['Event Definition (Event)'] != null)
+            {
+                EventDefinition_acumuladora++;
+                isTrue = true;
+            }
+            if (max == forms + 1) break;
+            linha5++;
+            console.log('------------------------------------------------------------------------------------------------------');
+            console.log('linha5: ' + linha5);
+            console.log('------------------------------------------------------------------------------------------------------');
+        }
+        console.log('Tent: ' + tent);
+        // -----------------Inicio Filragem-----------------
+
+        let EventName_filtrado = EventName.filter(elemento => elemento !== null);
+        let EventDefinitionType_filtrado = EventDefinitionType.filter(elemento => elemento !== null);
+        let triggertag_filtrado = triggertag.filter(elemento => elemento !== null);
+        let Priority_filtrado = Priority.filter(elemento => elemento !== null);
+        let TriggerwhenEquals_filtrado = TriggerwhenEquals.filter(elemento => elemento !== null);
+        let OEEEventType_filtrado = OEEEventType.filter(elemento => elemento !== null);
+        let ReEvaluateSystemEventonStart_filtrado = ReEvaluateSystemEventonStart.filter(elemento => elemento !== null);
+        let ReEvaluateSystemEventonEnd_filtrado = ReEvaluateSystemEventonEnd.filter(elemento => elemento !== null);
+        let ShowForAcknowledge_filtrado = ShowForAcknowledge.filter(elemento => elemento !== null);
+        let MTBFType_filtrado = MTBFType.filter(elemento => elemento !== null);
+        let Duration_filtrado = Duration.filter(elemento => elemento !== null);
+        let IsolationType_filtrado = IsolationType.filter(elemento => elemento !== null);
+        let CP_EventDefinitionKey_ForMTBFTypeFailure_filtrado = CP_EventDefinitionKey_ForMTBFTypeFailure.filter(elemento => elemento !== null);
+        let CP_EventDefinitionKey_ForMTBFTypeNONFailure_filtrado = CP_EventDefinitionKey_ForMTBFTypeNONFailure.filter(elemento => elemento !== null);
+        let CP_EventDefinitionKey_ForMTBFTypeExcluded_filtrado = CP_EventDefinitionKey_ForMTBFTypeExcluded.filter(elemento => elemento !== null);
+        let CP_EventDefinitionIDLigada_filtrado = CP_EventDefinitionIDLigada.filter(elemento => elemento !== null);
+        let CP_TagEventoCodigoAutomacao_filtrado = CP_TagEventoCodigoAutomacao.filter(elemento => elemento !== null);
+        let CP_LoockupSetKeyCategoriaEventosAuto_filtrado = CP_LoockupSetKeyCategoriaEventosAuto.filter(elemento => elemento !== null);
+
+        // -----------------Fim Filragem-----------------
     
         // ------------------------------------------
 
@@ -882,69 +922,90 @@ test('CriarMaquinaBatch', async ({ page }) => {
         await page.click(`a:text("  Event Definitions")`);
         await page.waitForTimeout(3000);
 
-        for (var j = 0; j < EventDefinition_acumuladora; j++)
+        for (var j = 0; j < tent[i]; j++)
         {
             const novo = await page.locator(`a:has-text("New")`).nth(1);
             const eventhandler = novo.first();
             eventhandler.click();
             await page.waitForTimeout(3000);
-            await page.fill('#tseditName', EventName[jota]);
+            await page.fill('#tseditName', EventName_filtrado[jota]);
             await page.waitForTimeout(3000);
-            if (EventDefinitionType[jota] != null) await page.selectOption('#tseditEventDefinitionTypeID', EventDefinitionType[jota]);
+            if (EventDefinitionType_filtrado[jota] != null) await page.selectOption('#tseditEventDefinitionTypeID', EventDefinitionType_filtrado[jota]);
             await page.waitForTimeout(3000);
             await page.click('#contentPage_tseditTriggerTagID_Picker');
             await page.waitForTimeout(3000);
-            await page.fill('#contentPage_Picker_TriggerTagID_Name_TextBox', templatetags[i] + '.Evento.EstadoMaquina');
+            await page.fill('#contentPage_Picker_TriggerTagID_Name_TextBox', templatetags[i] + '.' + triggertag_filtrado[i]);
             await page.waitForTimeout(3000);
             await page.click('#contentPage_Picker_TriggerTagID_Find_Button');
             await page.waitForTimeout(3000);
             await page.click('button:has-text("Assign")');
             await page.waitForTimeout(3000);
-            if (Priority[jota] != null) await page.fill('#tseditPriority', Priority[jota]);
+            if (Priority_filtrado[jota] != null) await page.fill('#tseditPriority', Priority_filtrado[jota]);
             await page.waitForTimeout(3000);
-            if (TriggerwhenEquals[jota] != '') await page.fill('#tseditTriggerWhenEquals', TriggerwhenEquals[jota]);
+            if (TriggerwhenEquals_filtrado[jota] != '') await page.fill('#tseditTriggerWhenEquals', TriggerwhenEquals_filtrado[jota]);
             await page.waitForTimeout(3000);
             await page.click(`li:has-text("OEE")`);
             await page.waitForTimeout(3000);
-            if (OEEEventType[jota] != null) await page.selectOption('#tseditOeeEventType', OEEEventType[jota]);
+            if (OEEEventType_filtrado[jota] != null) await page.selectOption('#tseditOeeEventType', OEEEventType_filtrado[jota]);
             await page.waitForTimeout(3000);
             await page.click(`li:has-text("Split")`);
             await page.waitForTimeout(3000);
-            if (ReEvaluateSystemEventonStart[jota] == "Sim") await page.click('#tseditReEvaluateSystemEventOnStart');
+            if (ReEvaluateSystemEventonStart_filtrado[jota] == "Sim") await page.click('#tseditReEvaluateSystemEventOnStart');
             await page.waitForTimeout(3000);
-            if (ReEvaluateSystemEventonEnd[jota] == "Sim") await page.click('#tseditReEvaluateSystemEventOnEnd');
+            if (ReEvaluateSystemEventonEnd_filtrado[jota] == "Sim") await page.click('#tseditReEvaluateSystemEventOnEnd');
             await page.waitForTimeout(3000);
             await page.click(`li:has-text("Event")`);
             await page.waitForTimeout(3000);
-            if (ShowForAcknowledge[jota] != null) await page.selectOption('#tseditShowForAcknowledge', ShowForAcknowledge[jota]);
+            if (ShowForAcknowledge_filtrado[jota] != null) await page.selectOption('#tseditShowForAcknowledge', ShowForAcknowledge_filtrado[jota]);
             await page.waitForTimeout(3000);
             await page.click(`li:has-text("Advanced")`);
             await page.waitForTimeout(3000);
-            if (MTBFType[jota] != null) await page.selectOption('#tseditMtbfType', MTBFType[jota]);
+            if (MTBFType_filtrado[jota] != null) await page.selectOption('#tseditMtbfType', MTBFType_filtrado[jota]);
             await page.waitForTimeout(3000);
-            if (Duration[jota] != null) await page.fill('#tseditDurationSeconds', Duration[jota]);
+            if (Duration_filtrado[jota] != null) await page.fill('#tseditDurationSeconds', Duration_filtrado[jota]);
             await page.waitForTimeout(3000);
-            if (IsolationType[jota] != null) await page.selectOption('#tseditEventIsolationType', IsolationType[jota]);
+            if (IsolationType_filtrado[jota] != null) await page.selectOption('#tseditEventIsolationType', IsolationType_filtrado[jota]);
             await page.waitForTimeout(3000);
             await page.click(`li:has-text("Definições")`);
             await page.waitForTimeout(3000);
-            if (CP_EventDefinitionKey_ForMTBFTypeFailure[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000321', CP_EventDefinitionKey_ForMTBFTypeFailure[jota]);
+            if (CP_EventDefinitionKey_ForMTBFTypeFailure_filtrado[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000321', CP_EventDefinitionKey_ForMTBFTypeFailure[jota]);
             await page.waitForTimeout(3000);
-            if (CP_EventDefinitionKey_ForMTBFTypeNONFailure[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000322', CP_EventDefinitionKey_ForMTBFTypeNONFailure[jota]);
+            if (CP_EventDefinitionKey_ForMTBFTypeNONFailure_filtrado[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000322', CP_EventDefinitionKey_ForMTBFTypeNONFailure[jota]);
             await page.waitForTimeout(3000);
-            if (CP_EventDefinitionKey_ForMTBFTypeExcluded[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000323', CP_EventDefinitionKey_ForMTBFTypeExcluded[jota]);
+            if (CP_EventDefinitionKey_ForMTBFTypeExcluded_filtrado[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000323', CP_EventDefinitionKey_ForMTBFTypeExcluded_filtrado[jota]);
             await page.waitForTimeout(3000);
-            if (CP_EventDefinitionIDLigada[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000345', CP_EventDefinitionIDLigada[jota]);
+            if (CP_EventDefinitionIDLigada_filtrado[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000345', CP_EventDefinitionIDLigada_filtrado[jota]);
             await page.waitForTimeout(3000);
-            if (CP_TagEventoCodigoAutomacao[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000367', CP_TagEventoCodigoAutomacao[jota]);
+            if (CP_TagEventoCodigoAutomacao_filtrado[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000367', CP_TagEventoCodigoAutomacao_filtrado[jota]);
             await page.waitForTimeout(3000);
-            if (CP_LoockupSetKeyCategoriaEventosAuto[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000368', CP_LoockupSetKeyCategoriaEventosAuto[jota]);
+            if (CP_LoockupSetKeyCategoriaEventosAuto_filtrado[jota] != null) await page.fill('#tseditcp_CPS0000000039_CP0000000368', CP_LoockupSetKeyCategoriaEventosAuto_filtrado[jota]);
             await page.waitForTimeout(3000);
             await page.click('#contentPage_Save_Button');
             await page.waitForTimeout(3000);
             jota++;
         }
-        jota += 5;
+        //vetorFiltrado
+
+        // while (1 < 2)
+        // {
+        //     const segundaLinha: LinhaExcel2 = dadosExcel2[linha5] as LinhaExcel2;
+        //     const segundaLinha2: LinhaExcel2 = dadosExcel2[linha5 + 1] as LinhaExcel2;
+
+        //     const prov = segundaLinha['Event Definition (Event)'];
+        //     const prov2 = segundaLinha2['Event Definition (Event)'];
+
+        //     soma3++;
+        //     if (prov == null && prov2 == null)
+        //     {
+        //         linha5 += Math.abs(linha5 - 13);
+        //         tent.push(EventDefinition_acumuladora);
+        //         EventDefinition_acumuladora = 0;
+
+        //     }
+        //     else if (segundaLinha['Event Definition (Event)'] != 'Name') EventDefinition_acumuladora++;
+        //     linha5++;
+        // }
+
         await page.click(`a:text("${name}")`);
         await page.waitForTimeout(3000);
     }
